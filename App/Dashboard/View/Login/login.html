@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8"/>
+    <title>MCOP Dashboard 登录</title>
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style.css" />
+    <style>
+        body{height:100%;background:#000011;overflow:hidden;}
+        canvas{z-index:-1;position:absolute;}
+
+    </style>
+    <script src="__PUBLIC__/js/jquery.js"></script>
+    <script src="__PUBLIC__/js/Particleground.js"></script>
+    <script>
+        $(document).ready(function() {
+            //粒子背景特效
+            $('body').particleground({
+                dotColor: '#ecd',
+                lineColor: '#ecd'
+            });
+
+        });
+    </script>
+    </head>
+<body id="dashboard">
+    <dl class="admin_login">
+        <dt>
+            <strong> MCOP 管理系统</strong>
+
+            <em style="margin-bottom:30px;"></em>
+        </dt>
+
+        <form action="" method="post">
+            <dd class="user_icon">
+                <input type="text" placeholder="账号" class="login_txtbx" name="name"/>
+            </dd>
+            <dd class="pwd_icon">
+                <input type="password" placeholder="密码" class="login_txtbx" name="password"/>
+            </dd>
+            <dd>
+                <input type="submit" value="立即登陆" class="submit_btn"/>
+            </dd>
+        </form> 
+
+        <dd>
+        <p>© 2017-2026 MCOP版权所有</p>
+        <p></p>
+        </dd>
+    </dl>
+  
+</body>
+</html>

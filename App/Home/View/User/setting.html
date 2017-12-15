@@ -1,0 +1,209 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/global.css">
+<style type="text/css">
+    .layui-form-pane .layui-form-label{
+        width: 225px;
+    }
+    .layui-form-item .layui-input-inline{width: 350px;}
+</style>
+<div class="layui-container fly-marginTop fly-user-main">
+    <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="user">
+        <li class="layui-nav-item">
+        <a href="{:U('User/index')}">
+            <i class="layui-icon  ">&#xe68e;</i>
+            首页
+        </a>
+        </li>
+        <li class="layui-nav-item layui-this ">
+        <a href="{:U('User/setting')}">
+            <i class="layui-icon">&#xe612;</i>
+            设置
+        </a>
+        </li>
+        <li class="layui-nav-item">
+        <a href="">
+            <i class="layui-icon">&#xe735;</i>
+            推广员
+        </a>
+        </li>
+        <li class="layui-nav-item">
+        <a href="">
+            <i class="layui-icon">&#xe60e;</i>
+            历史记录
+        </a>
+        </li>
+        <li class="layui-nav-item">
+        <a href="">
+            <i class="layui-icon">&#xe659;</i>
+            赏金计划
+        </a>
+        </li>
+        <li class="layui-nav-item">
+        <a href="">
+            <i class="layui-icon"> &#xe6b2;</i>
+            FAQ
+        </a>
+        </li>
+    </ul>
+
+    <div class="site-tree-mobile layui-hide">
+        <i class="layui-icon">&#xe602;</i>
+    </div>
+    <div class="site-mobile-shade"></div>
+
+    <div class="site-tree-mobile layui-hide">
+        <i class="layui-icon">&#xe602;</i>
+    </div>
+    <div class="site-mobile-shade"></div>
+
+
+<div class="fly-panel fly-panel-user" pad20>
+    <div class="layui-tab layui-tab-brief" >
+        <ul class="layui-tab-title" id="LAY_mine">
+            <li class="layui-this" lay-id="101profile">我的资料</li>
+            <li lay-id="101avatar">头像</li>
+            <li lay-id="101password">密码</li> 
+        </ul>
+    <div class="layui-tab-content" style="padding: 20px 0;">
+        <div class="layui-form layui-form-pane layui-tab-item layui-show">
+        <form method="post" action="" >
+            <div class="layui-form-item">
+                <label for="L_email" class="layui-form-label">{:L('ethereum_address')}</label>
+                <div class="layui-input-inline">
+                <input type="text"  name="ethereum_address" id="ethereum_address" required lay-verify="" autocomplete="off" value="{$user['ethereum_address']}" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">{:L('canbechangebeforesale')}</div>
+            </div>
+         
+          
+            <div class="layui-form-item">
+                <button class="layui-btn" key="set-mine" lay-filter="profile" lay-submit>{:L('submit')}</button>
+            </div>
+        </form>
+        </div>
+        <div class="layui-form layui-form-pane layui-tab-item">
+            <div class="layui-form-item">
+                <div class="avatar-add">
+                    <p>suggest 168*168 ,support jpg、png、gif，max 5M</p>
+                <button type="button" id="uploadavatar" class="layui-btn upload-img">
+                    <i class="layui-icon">&#xe67c;</i>upload avatar
+                </button>
+                    <img id="avatarimg" src="{$user['avatar']}">
+                    <span class="loading"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form layui-form-pane layui-tab-item">
+            <form action="" method="post" >
+            <div class="layui-form-item">
+            <label for="L_nowpass" class="layui-form-label">{:L('now_password')}</label>
+            <div class="layui-input-inline">
+            <input type="password" id="L_nowpass" name="nowpass" required lay-verify="required" autocomplete="off" class="layui-input">
+            </div>
+            </div>
+            <div class="layui-form-item">
+            <label for="L_pass" class="layui-form-label">{:L('password_new')}</label>
+            <div class="layui-input-inline">
+            <input type="password" id="L_pass" name="pass" required lay-verify="required|pass_verify" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux"  ></div>
+            </div>
+            <div class="layui-form-item">
+            <label for="L_repass" class="layui-form-label">{:L('password_confirm_new')}</label>
+            <div class="layui-input-inline">
+            <input type="password" id="L_repass" name="repass" required lay-verify="required|pass_confirm_verify" autocomplete="off" class="layui-input">
+            </div>
+            </div>
+            <div class="layui-form-item">
+            <button class="layui-btn" key="set-mine" lay-filter="updatepass" lay-submit>{:L('submit')}</button>
+            </div>
+            </form>
+        </div>
+
+        
+    </div>
+
+    </div>
+</div>
+</div>
+
+<script type="text/javascript">
+    layui.use(['element','upload','form'], function(){
+        var element = layui.element;
+        var upload =layui.upload;
+        var form =layui.form;
+        upload.render({
+            elem: '#uploadavatar',
+            method:'POST',
+            data:{name:'avatar'},
+            url: moduleUrl+'/Upload/avatarUpload',
+            accept:'images',
+            exts:"jpg|png|gif|bmp|jpeg",
+            size:'2048',
+            done: function(res){
+                $('#avatarimg').attr('src','/Uploads/'+res.file.savepath+res.file.savename);
+            }
+        });
+
+        form.verify({
+            pass_verify:function(value){
+                if (value.length<6) {
+                    return 'At least 6 bits of password ';
+                }
+            },
+            pass_confirm_verify:function(value){
+                var pass=$('#L_pass').val();
+                if (pass!=value) {
+                    return 'Two input password inconsistencies';
+                }
+            },
+        });
+        form.on('submit(updatepass)', function(data){
+            
+            $.ajax({
+                url: ajaxUrl+'/uploadPassword',
+                type: 'POST',
+                dataType: 'json',
+                data: data.field,
+            })
+            .done(function(res) {
+                layer.msg(res.message);
+            })
+            .fail(function() {
+                layer.msg('System Error.');
+            })
+            
+            
+            return false;
+        });
+        form.on('submit(profile)',function(data){
+            console.log(data);
+            $.ajax({
+                url: ajaxUrl+'/uploadProfile',
+                type: 'POST',
+                dataType: 'json',
+                data: data.field,
+            })
+            .done(function(res) {
+                if (res.code=='success') {
+                    layer.msg(res.message);
+                    $('#ethereum_address').val(data.field.ethereum_address);
+                }else{
+                    layer.msg(res.message);
+                }
+                
+
+            })
+            .fail(function() {
+                layer.msg('System Error.');
+            })
+            
+            
+            return false;
+        })
+    });
+</script>
+
+
+
+

@@ -1,0 +1,85 @@
+<include file="Public/header" />
+<style type="text/css">
+    .table td{text-align:center;}
+    .table th{letter-spacing:4px;}
+    .table .dataList:hover{
+      background:#FFE4B5;
+    }
+    #sub{
+      width:110px;
+      margin-left:10px;
+    }
+
+    #<?php echo CONTROLLER_NAME.ACTION_NAME; ?>{
+      color:#19a97b;
+      background:#f8f8f8;
+    }
+</style>
+
+<section class="rt_wrap content mCustomScrollbar">
+	<div class="rt_content">
+		<div class="page_title">
+			<h2 class="fl">添加新管理员</h2>
+			<a href="{:U('Index/getAdminList')}" class="fr top_rt_btn ">返回管理员列表</a>
+		</div>
+		<ul class="ulColumn2">
+			<form method="POST" action="">
+			<li>
+				<span class="item_name" style="width:120px;" lay-verify="required">登陆名：</span>
+				<input type="text" name="name" class="textbox textbox_225" value="" placeholder="登陆名..."  />
+				
+			</li>
+			<li>
+				<span class="item_name" style="width:120px;">登陆密码：</span>
+				<input type="password" id="pwd" name="password" class="textbox textbox_225" value="" placeholder="登陆密码..."/>
+				
+			</li>
+
+			<li id="confirmpwd">
+				<span class="item_name" style="width:120px;">确认密码：</span>
+				<input type="password" name="password_check" id="repwd" class="textbox textbox_225"  value="" placeholder="确认密码..."/>
+				
+			</li>
+
+			<li>
+				<span class="item_name" style="width:120px;">真实姓名：</span>
+				<input type="email" name="truename" class="textbox textbox_225"  value="" placeholder="真实姓名..."/>
+				
+			</li>
+			
+			<li>
+				<span class="item_name" style="width:120px;">电子邮箱：</span>
+				<input type="email" name="email" class="textbox textbox_225"  value="" placeholder="电子邮件地址..."/>
+				
+			</li>
+			
+			<li>
+	            <span class="item_name" style="width:120px;vertical-align:top;">备注信息：</span>
+	            <textarea placeholder="用户备注信息" class="textarea" style="width:500px;height:100px;" name="remark"></textarea>
+           	</li>
+            <li>
+				<span class="item_name" style="width:120px;">角色：</span>
+				<select class="select" name="role_id">
+                  	<volist name="roleList" id="vo">
+                    	<option value="{$vo['id']}">{$vo['name']}</option>
+                  	</volist>
+                </select>
+			</li>
+			<li>
+			<span class="item_name" style="width:120px;"></span>
+			<input type="button" lay-submit class="link_btn" id="sub" value="添加"/>
+			</li>
+			</form>
+		</ul>
+	</div>
+</section>
+<script type="text/javascript">
+
+	$('#sub').on('click',function(){
+       
+        $('form').submit();
+          
+    });
+</script>
+</body>
+</html>

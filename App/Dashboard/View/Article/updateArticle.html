@@ -1,0 +1,78 @@
+<include file="Public:header" />
+
+
+<section class="rt_wrap content mCustomScrollbar">
+<div class="rt_content">
+	<div class="page_title">
+		<h2 class="fl">添加文章</h2>
+		<a class="fr top_rt_btn" href="{:U('Article/articleList')}">返回文章列表</a>
+	</div>
+
+	<ul class="ulColumn2">
+
+
+		<form action="{:U('Article/doUpdateAriticle')}" method="POST" enctype="multipart/form-data" >
+			<input type="hidden" name="id" value="{$article['id']}">
+		<li>
+			<span class="item_name" style="width:120px;">语言：</span>
+				<select class="select" name="language" style="width: 120px;">
+					
+				<volist name="lang" id='lan'>
+					<option value="{$lan}" <if condition="$article['language'] eq $lan">selected</if> >{$lan}</option>
+				</volist>
+			</select>
+
+		</li>
+
+		<li>
+			<span class="item_name" style="width:120px;">类型：</span>
+			<select class="select" name="type" style="width: 160px;">
+				
+				<option value="1" <if condition="$article['type'] eq 1">selected</if>>Terms Of Use</option>
+				<option value="2" <if condition="$article['type'] eq 2">selected</if>>Privacy Policy</option>
+				<option value="3" <if condition="$article['type'] eq 3">selected</if>>White Paper</option>
+			</select>
+
+		</li>
+
+		<li>
+			<span class="item_name" style="width:120px;" placeholder="标题...">标题：</span>
+			<input type="text" value="{$article['title']}" class="textbox textbox_295" name="title" />
+			<span class="errorTips"></span>
+		</li>
+		<li>
+			<span class="item_name" style="width:120px;">内容：</span>
+			<style type="text/css">
+				.edui-container{margin-left: 120px;}
+			</style>
+			<script id="container" name="content" type="text/plain" style="width:960px;height:360px;">
+		        {$article['content']|htmlspecialchars_decode=###}
+		    </script>
+
+		</li>
+
+		<li>
+			<span class="item_name" style="width:120px;">上传文件：</span>
+			<input type="file" name="pdf" class="textbox textbox_295" />
+			<span class="errorTips">如果是 white paper 需要上传 PDF 文件</span>
+		</li>
+		<li>
+			<span class="item_name" style="width:120px;"></span>
+			<input type="submit" class="link_btn"/>
+		</li>
+		</form>
+	</ul>
+    
+</div>
+</section>
+
+ <link href="__PUBLIC__/umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="__PUBLIC__/umeditor/third-party/jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/umeditor/third-party/template.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/umeditor/umeditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/umeditor/umeditor.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/umeditor/lang/zh-cn/zh-cn.js"></script>
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+     var um = UM.getEditor('container');
+</script>

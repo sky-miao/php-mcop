@@ -1,0 +1,146 @@
+<include file="Public/header" />
+
+<section class="rt_wrap content mCustomScrollbar">
+
+<div class="rt_content">
+	<div class="page_title">
+		<h2 class="fl">会员详情</h2>
+		<a href="{:U('User/userList')}" class="fr top_rt_btn">返回用户列表</a>
+	</div>
+
+	<form action="" method="POST">
+
+	<input type="hidden" name="user_id" value="{$user['user_id']}">
+	<ul class="ulColumn2">
+		<li>
+			<span class="item_name" style="width:120px;">头像：</span>
+			<span class="item_name"><img style="width: 80px;height: 80px;" src="{$user['avatar']}"> </span>
+		</li>
+	<li>
+		<span class="item_name" style="width:120px;">电子邮箱：</span>
+		<input type="text" name="email" class="textbox textbox_295" value="{$user['email']}" readonly />
+		<span class="errorTips">禁止修改</span>
+	</li>
+	
+	
+	
+	<li>
+		<span class="item_name" style="width:120px;">姓氏：</span>
+		<input type="text" name="last_name" readonly class="textbox textbox_295" value="{$user['last_name']}" />
+		
+	</li>
+
+	<li>
+		<span class="item_name" style="width:120px;">名字：</span>
+		<input type="text" name="first_name" readonly class="textbox textbox_295" value="{$user['first_name']}" />
+		
+	</li>
+
+	<li>
+		<span class="item_name" style="width:120px;">生日：</span>
+		<input type="text" name="date_of_birth" readonly class="textbox textbox_295" value="{$user['date_of_birth']}" />
+		
+	</li>
+	<li>
+		<span class="item_name" style="width:120px;">国家：</span>
+		<input type="text" name="country" class="textbox textbox_295" value="{$user['country']}"  readonly/>
+		
+	</li>
+	<li>
+		<span class="item_name" style="width:120px;">州/区：</span>
+		<input type="text" name="state_region" class="textbox textbox_295" value="{$user['state_region']}"  readonly/>
+		
+	</li>
+	<li>
+		<span class="item_name" style="width:120px;">城市：</span>
+		<input type="text" name="city" class="textbox textbox_295" value="{$user['city']}"  readonly/>
+		
+	</li>
+
+	<li>
+		<span class="item_name" style="width:120px;">详细地址：</span>
+		<input type="text" name="street_address" class="textbox textbox_295" value="{$user['street_address']}"  readonly/>
+		
+	</li>
+
+	<li>
+		<span class="item_name" style="width:120px;">以太坊地址：</span>
+		<input type="text" name="ethereum_address" class="textbox textbox_295" value="{$user['ethereum_address']}" />
+		
+	</li>
+	<li>
+		<span class="item_name" style="width:120px;">证件号码：</span>
+		<input type="text" name="idcard_number" class="textbox textbox_295" value="{$user['idcard_number']}"  readonly/>
+		
+	</li>
+
+	<li>
+		<span class="item_name" style="width:120px;">证件相片：</span>
+		<span class="item_name"><img style="width: 340px;height: 210px;" src="{$user['idcard_front']}"> </span>
+		<span class="item_name"><img style="width: 340px;height: 210px" src="{$user['idcard_back']}"> </span>
+		
+	</li>
+
+	<li>
+		<span class="item_name" style="width:120px;">邮箱是否验证：</span>
+		<span>
+			<switch name="user.email_confirm">
+			    <case value="0"><span class="errorTips">未验证</span></case>
+			    <case value="1"><span style="color: blue;"><a title="是" class="link_icon">Y 已验证</a></span></case>
+			    
+			</switch>
+		</span>
+		
+	</li>
+
+	<switch name="user.email_confirm">
+	    <case value="0">
+	    	<li>
+				<span class="item_name" style="width:120px;">KYC 验证：</span>
+				
+				<span class="errorTips">由于邮箱未验证，暂时不能进行 KYC 审核</span>
+			</li>
+	    </case>
+	    <case value="1">
+	    	<?php if($user['kyc_validate'] =='1'):?>
+	    		<li>
+					<span class="item_name" style="width:120px;">KYC 验证：</span>
+					
+					<select class="select" name="kyc_validate">
+						<option value="4">保持</option>
+						<option value="2">通过</option>
+						<option value="3">不通过</option>
+					</select>
+					<span class="errorTips">谨慎 KYC 审核</span>
+				</li>
+			<?php elseif($user['kyc_validate'] =='0'):?>
+				<li>
+				<span class="item_name" style="width:120px;">KYC 验证：</span>
+				<span class="errorTips">未提交KYC审核</span>
+				</li>
+			<?php elseif($user['kyc_validate'] =='3'):?>
+				<li>
+				<span class="item_name" style="width:120px;">KYC 验证：</span>
+				<span class="errorTips">审核未通过</span>
+				</li>
+			<?php elseif($user['kyc_validate'] =='2'):?>
+				<li>
+				<span class="item_name" style="width:120px;">KYC 验证：</span>
+				<span ><a title="是" class="link_icon">Y 通过</a></span>
+				</li>
+	    	<?php endif;?>
+	    </case>
+			    
+	</switch>
+
+	
+	
+	<li>
+		<span class="item_name" style="width:120px;"></span>
+		<input type="submit" class="link_btn" value="保存"/>
+	</li>
+	</ul>
+	</form>
+</div>
+
+</section>

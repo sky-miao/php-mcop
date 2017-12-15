@@ -1,0 +1,159 @@
+body {
+    min-height: 2000px;
+  }
+  
+.navbar-static-top {
+    margin-bottom: 19px;
+}
+.navbar{
+    position: absolute;
+    background-color: rgba(30, 30, 30, 0.6);
+    z-index: 3;
+    width: 100%;
+    height: 50px;
+}
+.navbar-nav {
+    background: rgba(30, 30, 30, 0);
+    margin: 0px -15px;
+}
+.navbar-default .navbar-toggle{
+    background-color: rgba(30, 30, 30, 0.6);
+}
+.dropdown-menu>li>a{
+    color: #fff;
+}
+.header .container .logo{
+    height: 50px;
+    padding: 10px 10px;
+    border-bottom: 0px;
+}
+.header .container .logo img{
+    height: 30px;
+}
+.navbar-default .navbar-nav>li>a{
+    color: #fff;
+    font-size: 14px;
+}
+.navbar-default .navbar-nav>li>a:hover{
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+    color: #fff;
+    background-color: rgba(30, 30, 30, 0);
+}
+/* 下拉框 */
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
+    color: #fff;
+    background-color: rgba(30, 30, 30, 0);
+}
+.navbar-nav>li>.dropdown-menu{
+    color: #fff;
+    background-color: rgba(30, 30, 30, 0.6);
+}
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover{
+    color: #fff;
+    background: rgba(30, 30, 30, 0);
+}
+/* 导航文字 */
+.header .tab .tab-con ul li h3 {
+    font-size: 40px;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+.header .tab .tab-con ul li p {
+    font-size: 14px;
+}
+/* MEDICALPRO SERVICES */
+.page-index .container .stage-get-well-soon .row{
+    text-align: center;
+    margin: 15px 0;
+}
+.page-index .container .stage-get-well-soon .row img{
+    padding: 20px 0;
+}
+.page-index .container .stage-get-well-soon .row h4{
+    margin-bottom: 10px;
+}
+/* HOW IT WORKS */
+.featurette-content{
+    background-color: #F8F8F8;
+    padding: 40px 0;
+}
+.featurette .movie-box img{
+    width: 100%;
+}
+.page-index .container .movie-info .btn{
+    margin-top: 100px;
+}
+.featurette .movie-info h5{
+    margin: 15px 0;
+}
+
+.page-index .container .movie-box .mask {
+    width: 95%;
+    height: 100%;
+    position: absolute;
+    left: 15px;
+    top: 0px;
+    background-color: rgba(38, 38, 38, 0.5);
+    z-index: 0;
+}
+.page-index .container .movie-box a {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    background: url(../images/btn-play.png) no-repeat 0 0;
+    background-size: 100% 100%;
+    margin: -20px 0 0 -20px;
+    text-indent: -9999px;
+}
+.page-index .container .stage-chart .hd{
+    padding-bottom: 0;
+}
+@media screen and (max-width: 767px) {
+    
+    .navbar{
+        position: relative;
+        background-color: rgba(30, 30, 30, 0.6);
+        width: 100%;
+        height: 50px;
+    }
+    .navbar-nav {
+        background: rgba(30, 30, 30, 0.6);
+        margin: 0px -15px;
+    }
+    .navbar-default .navbar-toggle{
+        background: rgba(30, 30, 30, 0);
+        
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a{
+        color: #fff;
+    }
+    /* 导航文字 */
+    .header .tab .tab-con ul li h3 {
+        font-size: 18px;
+        line-height: 20px;
+        margin-bottom: 13px;
+    }
+    .header .tab .tab-con ul li p {
+        font-size: 14px;
+    }
+    /* technical white  paper */
+    .page-index .container .tab-menu .btn{
+        width: 200px;
+    }
+    .page-index .container .movie-info{
+        text-align: center;
+    }
+    .page-index .container .movie-info .btn{
+        width: 200px;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+}

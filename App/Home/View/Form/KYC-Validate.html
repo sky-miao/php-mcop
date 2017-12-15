@@ -1,0 +1,174 @@
+<style type="text/css">
+    .layui-form-label{width:225px;}
+    .layui-container{width: 98%;}
+    .layui-input-block{margin-left:360px; }
+    /*.layui-upload-drag{margin-left:165px; }*/
+    .layui-input, .layui-select, .layui-textarea{
+        border-width: 2px;
+        border-radius: 6px;
+
+    }
+    .layui-upload-drag{width: 500px;height: 300px;padding: 15px;}
+
+    .imgbox{
+        width:340px;
+        height:216px;
+    }
+</style>
+<blockquote class="layui-elem-quote">
+    <h2>One Step Away to Access the Token Sale</h2>
+    <h3>You will need the following items to complete the registration</h3>
+</blockquote>
+
+<form class="layui-form" id="kycvalidateform" method="POST" action="{:U('User/validate')}">
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">First Name</label>
+            <div class="layui-input-inline">
+                <input type="text" value="{$user['first_name']?$user['first_name']:''}" name="first_name" lay-verify="required|first_name" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">Last Name</label>
+            <div class="layui-input-inline">
+                <input type="text" value="{$user['last_name']?$user['last_name']:''}" name="last_name" lay-verify="required|last_name" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">Date of Birth</label>
+        <div class="layui-input-inline">
+            <input type="text" value="{$user['date_of_birth']?$user['date_of_birth']:''}" name="date_of_birth" id="date" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
+        </div>
+        <div class="layui-form-mid layui-word-aux">The minimum age required to participate in the token sale is 18</div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">Street Address</label>
+            <div class="layui-input-inline">
+                <input type="text" value="{$user['street_address']?$user['street_address']:''}" name="street_address" lay-verify="required|street_address" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">City</label>
+            <div class="layui-input-inline">
+                <input type="text" value="{$user['city']?$user['city']:''}" name="city" lay-verify="required|city" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">State/Region</label>
+            <div class="layui-input-inline">
+                <input type="text" value="{$user['state_region']?$user['state_region']:''}" name="state_region" lay-verify="required|state_region" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label">Country</label>
+            <div class="layui-input-inline">
+            <select name="country" lay-verify="required" lay-search="">
+                <volist name="countrys" id='vo' >
+                <option value="{$vo}" <if condition="$user['country'] eq $vo"> selected </if>    >{$vo}</option>
+                </volist>
+            </select>
+            </div>
+        </div>
+   
+        
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">ZIP/Postal Code</label>
+            <div class="layui-input-inline">
+                <input type="text" value="{$user['postal_code']?$user['postal_code']:''}" name="postal_code" lay-verify="required|postal_code" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+       
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">Ethereum Address</label>
+        <div class="layui-input-inline">
+            <input type="text" value="{$user['ethereum_address']?$user['ethereum_address']:''}" name="ethereum_address" lay-verify="required|ethereum_address" autocomplete="off" class="layui-input">
+        </div>
+
+        <div class="layui-form-mid layui-word-aux" style="margin-top: -20px;">
+           
+                 make sure to use your Ethereum Wallet address and <p>
+             not addresses from exchanges like Coinbase,Poloniex,Kraken.</p>
+             <a href="">learn more</a>
+            
+        </div>  
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">Estimated Participation Amount($)</label>
+        <div class="layui-input-inline">
+            <input type="text" value="{$user['estimated_participation_amount']?$user['estimated_participation_amount']:''}" name="estimated_participation_amount"  lay-verify="required|estimated_participation_amount"   autocomplete="off" class="layui-input">
+        </div>
+
+        <div class="layui-form-mid layui-word-aux" style="">
+             Estimated Amount is USD that you would like to Paticipation with
+            
+        </div>  
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">Identification Document Number</label>
+        <div class="layui-input-inline">
+            <input type="text" value="{$user['idcard_number']?$user['idcard_number']:''}" name="idcard_number" lay-verify="required|idcard_number"    autocomplete="off" class="layui-input">
+        </div>
+
+        <div class="layui-form-mid layui-word-aux" style="margin-top: -20px;">
+           
+                A valid ID Document is required for the varification process.  <p>
+                In addition to Government issued Passports</p>
+                National IDs and Driver License are also accepted.
+        </div>  
+    </div>
+
+    <div class="layui-form-item">
+       
+         
+        <div class="layui-upload-drag layui-input-inline " style="width: 500px;"  id="idcardfront">
+            <i class="layui-icon"></i>
+            <p>{:L('uploadidcardfront')} </p>
+            <div id="idcardfrontdiv" style="width:350px;height: 220px;margin: 0 auto;">
+                <if condition="$user['idcard_front'] neq null">
+                    <img src="{$user.idcard_front}" class="imgbox">
+                </if>
+            </div>
+            
+        </div>
+
+
+
+         
+        <div class="layui-upload-drag layui-input-inline" style="width: 500px" id="idcardback">
+            <i class="layui-icon"></i>
+            <p>{:L('uploadidcardback')} </p>
+            <div id="idcardbackdiv" style="width:350px;height: 220px;margin: 0 auto;" >
+                <if condition="$user['idcard_back'] neq null">
+                    <img src="{$user.idcard_back}" class="imgbox">
+                </if>
+            </div>
+        </div>
+
+    </div>
+ 
+
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" type="button" lay-submit="" lay-filter="kycvalidatesub">{:L('submit')}</button>
+      <button type="reset" class="layui-btn layui-btn-primary">{:L('reset')}</button>
+    </div>
+  </div>
+</form>
+<script type="text/javascript" src="__PUBLIC__/customer/kycvalidate.js"></script>

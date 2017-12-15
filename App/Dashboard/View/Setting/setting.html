@@ -1,0 +1,43 @@
+<include file="Public/header" />
+
+<section class="rt_wrap content mCustomScrollbar">
+<div class="rt_content">
+    <div class="page_title">
+        <h2 class="fl">站点基础设置</h2>
+    </div>
+    <section>
+    <ul class="ulColumn2">
+        <form action="" method="POST">
+        <li>
+            <span class="item_name" style="width:120px;">站点状态：</span>
+            <label class="single_selection">
+                <input type="radio"  value="0"
+                <if condition="$settings['site_status'] eq 0">checked</if> 
+                name="site_status"/>关闭</label>
+
+
+            <label class="single_selection">
+                <input type="radio" value="1"
+                <if condition="$settings['site_status'] eq 1">checked</if>
+                 name="site_status"/>开启</label>
+        </li>
+
+        <li>
+            <span class="item_name" style="width:120px;">是否开售：</span>
+            <label class="single_selection">
+                <input type="radio" value="0" <if condition="$settings['is_sale'] eq 0">checked</if>
+                 name="is_sale"/>否</label>
+            <label class="single_selection">
+                <input type="radio" value="1" <if condition="$settings['is_sale'] eq 1">checked</if>
+                 name="is_sale"/>是</label>
+        </li>
+
+        <li>
+            <span class="item_name" style="width:120px;"></span>
+            <input type="submit" class="link_btn" value="保存"/>
+        </li>
+        </form>
+    </ul>
+    </section>
+</div>
+</section>

@@ -1,0 +1,102 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/global.css">
+<div class="layui-container fly-marginTop fly-user-main">
+    <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="user">
+        <li class="layui-nav-item layui-this">
+            <a href="__SELF__">
+            <i class="layui-icon ">&#xe68e;</i>
+            首页
+            </a>
+        </li>
+        <li class="layui-nav-item ">
+            <a href="{:U('User/setting')}">
+            <i class="layui-icon">&#xe612;</i>
+            设置
+            </a>
+        </li>
+            <li class="layui-nav-item">
+            <a href="">
+            <i class="layui-icon">&#xe735;</i>
+            推广员
+            </a>
+        </li>
+        <li class="layui-nav-item">
+            <a href="">
+            <i class="layui-icon">&#xe60e;</i>
+            历史记录
+            </a>
+        </li>
+        <li class="layui-nav-item">
+            <a href="">
+            <i class="layui-icon">&#xe659;</i>
+            赏金计划
+            </a>
+        </li>
+        <li class="layui-nav-item">
+            <a href="">
+            <i class="layui-icon"> &#xe6b2;</i>
+            FAQ
+            </a>
+        </li>
+    </ul>
+
+    <div class="site-tree-mobile layui-hide">
+        <i class="layui-icon">&#xe602;</i>
+    </div>
+    <div class="site-mobile-shade"></div>
+
+    <div class="site-tree-mobile layui-hide">
+    <i class="layui-icon">&#xe602;</i>
+    </div>
+    <div class="site-mobile-shade"></div>
+
+
+    <div class="fly-panel fly-panel-user" pad20>
+    
+    <?php if(!empty($messages)):
+        foreach($messages as $key=>$message):
+    ?>
+    <blockquote class="site-text layui-elem-quote"  >
+        <h2><?php echo $message;?></h2>
+    </blockquote>
+
+    <?php endforeach; endif; ?>
+        <div class="layui-tab layui-tab-brief" lay-filter="user">
+            <ul class="layui-tab-title" id="LAY_mine">
+                <!-- <li data-type="mine-jie" lay-id="index" class="layui-this">Buy</li> -->
+
+            </ul>
+            <div class="layui-tab-content" style="padding: 20px 0;">
+                <div class="layui-tab-item layui-show">
+                    <ul class="mine-view jie-row">
+                        
+                        <!-- content-->
+
+                        <switch name="user.kyc_validate">
+                            <case value="0|3">
+                                 <!-- 未提交KYC验证 -->
+                                <include file="Form/KYC-Validate"/>
+                            </case>
+                            <case value="1|2">
+                                <!-- 已提交KYC验证 未审核 -->
+                                <?php if($user['email_confirm'] =='0'):?>
+                                    <!-- 邮箱未验证 -->
+                                    <include file="Form/Email-Validate" />
+                                    <?php else:?>
+                                    <!-- 邮箱已验证 -->
+                                    <include file="Form/isSale" />
+                                <?php endif;?> 
+                            </case>
+                           
+                          
+                        </switch>
+
+                        <!--end-->
+
+                    </ul>
+                <div id="LAY_page"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,145 @@
+<include file="Public/header" />
+<style type="text/css">
+    .table td{text-align:center;}
+    .table th{letter-spacing:4px;}
+    .table .dataList:hover{
+      background:#FFE4B5;
+    }
+    #sub{
+      width:110px;
+      margin-left:10px;
+    }
+
+    #<?php echo CONTROLLER_NAME.ACTION_NAME; ?>{
+      color:#19a97b;
+      background:#f8f8f8;
+    }
+    .v_update{
+        border:1px solid #19a97b;
+        padding:2px 10px;
+        color:#19a97b;
+        cursor: pointer;
+        transition:background 0.8s;
+    }
+    .v_update:hover{
+      background:#19a97b;
+      color:white;
+    }
+
+    .v_delete{
+      border:1px solid red;
+      padding:2px 10px;
+      color:red;
+      cursor: pointer;
+      transition:background 0.8s; 
+    }
+
+    .v_delete:hover{
+      background:red;
+      color:white;
+    }
+    #showPopTxt{cursor: pointer;}
+    #error_tip{text-align: center;color:red;}
+</style>
+<section class="rt_wrap content mCustomScrollbar">
+    <div class="rt_content">
+       
+        <div class="page_title">
+           <h2 class="fl">管理员列表</h2>
+           <a href="{:U('Index/addNewAdmin')}" class="fr top_rt_btn add_icon">添加管理员</a>
+        </div>
+        <form action="" method="GET">
+            <input type="hidden" name="formsearch" value="1"/>
+            <section class="mtb">
+                
+                <select class="select">
+                    <option>用户名</option>
+                </select>
+                
+               
+                <input type="text" name="name" value="{:I('get.name')}" class="textbox textbox_225" placeholder="请输入用户名"/>
+                <input type="button" value="查询" id="sub" class="group_btn"/>
+            </section>
+        </form>
+        <table class="table">
+
+            <tr>
+                <th>ID</th>
+                <th>登陆名</th>
+                <th>邮箱</th>
+                <th>真实姓名</th>
+                <th>状态</th>
+                <th>角色</th>
+                <th>本月登陆次数</th>
+                <th>上次登陆时间</th>
+               
+                <th>操作</th>
+            </tr>
+            <volist name="data" id="val">
+            <tr>
+                <td >{$val['admin_id']}</td>
+                <td >{$val['name']}</td>
+                <td >{$val['email']}</td>
+                <td >{$val['truename']}</td>
+                <td class="center">
+                    <switch name="val.is_active">
+                        <case value="1">正常</case>
+                        <case value="0">禁止</case>
+                    </switch>
+                </td>
+                <td >
+                    <if condition="C('ADMIN')  eq $val['name']">超级管理员
+                    <else/>
+                        {$val['role_name']|default=""}
+                    </if>
+                </td>
+                <td >{$val['m_count']}</td>
+                <td ><small>{$val['current_login_time']|date="Y-m-d H:i:s",###}</small></td>
+               
+                <td class="center">
+                    <if condition="$val['name'] != C('ADMIN')">
+                        <a href="{:U('Index/updateAdmin',array('id'=>$val['admin_id']))}"><span class="v_update">修改</span></a>
+                        <span class="v_delete" data="{$val['admin_id']}">删除</span>
+                    </if>
+                </td>
+            </tr>
+            </volist>
+        </table>
+        <aside class="paging">
+           {$page}
+        </aside>
+       
+    </div>
+</section>
+<script type="text/javascript">
+    $('#sub').on('click',function(){
+            
+        $('form').submit();
+          
+    });
+</script>
+<script type="text/javascript">
+    $(function(){
+
+       $('.v_delete').on('click',function(){
+           
+            var id = $(this).attr('data');
+            var userLine = $(this);
+
+            $.ajax({
+                type:'post',
+                url: "{:U('Index/deleteAdmin')}",
+                data: 'id='+id,
+                success:function(e){
+                  if(e=='success'){
+                    userLine.parent().parent().css('display','none');
+                  }else{
+                    alert('删除失败.请重试');
+                  }
+                }
+            });
+       });
+     });
+</script>  
+</body>
+</html>

@@ -1,0 +1,108 @@
+<include file="Public/header" />
+
+<style type="text/css">
+    
+    .table td{text-align:center;}
+    .table th{letter-spacing:4px;}
+    .table .dataList:hover{
+      background:#FFE4B5;
+    }
+    .lt_aside_nav dt{
+      cursor:pointer;
+    }
+
+    #addMan{
+        border:1px #19a97b solid;padding:8px 10px;
+        transition:background 0.6s;
+    }
+    #addMan:hover{
+      background:#139667;
+      color:white;
+    }
+</style>
+
+
+<section class="rt_wrap content mCustomScrollbar">
+<div class="rt_content">
+    <div class="page_title">
+        <h2 class="fl">修改管理员</h2>
+        <a href="{:U('Index/getAdminList')}" class="fr top_rt_btn ">管理员列表</a>
+    </div>
+
+
+    <section>
+    <form action="" method="post">
+        <ul class="ulColumn2">
+        
+
+        <input type="hidden" name="id" value="{$Think.get.id}"/>
+        <li>
+            <span class="item_name" style="width:120px;">用户名　</span>
+            <input type="text" readonly="true" class="textbox textbox_295" name="name" value="{$data['name']}"/>
+        </li>
+        <li>
+            <span class="item_name" style="width:120px;">真实姓名　</span>
+            <input  type="text" class="textbox textbox_295" name="truename" value="{$data['truename']}"/>
+        </li>
+        <li>
+            <span class="item_name" style="width:120px;">邮箱　</span>
+            <input  type="text" class="textbox textbox_295" name="email" value="{$data['email']}"/>
+        </li>
+
+        <li>
+            <span class="item_name" style="width:120px;">初始化密码　</span>
+            <input type="password" class="textbox textbox_295" name="password" id="pwd"/>
+            <span class="errorTips">如不需重置密码,请勿填写</span>
+        </li>
+        <li>
+            <span class="item_name" style="width:120px;">再次输入密码　</span>
+            <input type="password" class="textbox textbox_295" id="repwd"/>
+            <span class="errorTips">如不需重置密码,请勿填写</span>
+        </li>
+
+        <li>
+            <span class="item_name" style="width:120px;">状态　</span>
+            <select class="select" name="is_active" style="width:80px;">
+              
+                    <option value="1" id="is_active1" >正常</option>
+                    <option value="0" id="is_active0">禁止</option>
+               
+            </select>
+        </li>
+        <li>
+            <span class="item_name" style="width:120px;vertical-align:top;">备注信息　</span>
+            <textarea placeholder="用户备注信息" class="textarea" style="width:500px;height:100px;" name="remark">{$data['remark']}</textarea>
+        </li>
+
+        <li>
+            <span class="item_name" style="width:120px;">设置角色　</span>
+            <select class="select" name="role_id" style="width:120px;">
+                <volist name="roleList" id="vo">
+                    <option value="{$vo['id']}" id="list{$vo['id']}">{$vo['name']}</option>
+                </volist>
+            </select>
+        </li>
+
+        <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" class="link_btn" value="更新"/>
+        </li>
+        </ul>
+    </form>
+    </section>
+    
+</div>
+</section>
+    
+
+<script type="text/javascript">
+    $(function(){
+        $('.lt_aside_nav ul dd').eq(0).find('a').addClass('active');
+        $('#list{$data["role_id"]}').attr('selected',true);
+        $('#is_active{$data["is_active"]}').attr('selected',true);
+    });
+
+</script>
+
+</body>
+</html>

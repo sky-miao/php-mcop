@@ -1,0 +1,131 @@
+<include file="Public/header" />
+<style type="text/css">
+    .table td{text-align:center;}
+    .table th{letter-spacing:4px;}
+    .table .dataList:hover{
+      background:#FFE4B5;
+    }
+    #sub{
+      width:110px;
+      margin-left:10px;
+    }
+
+    #<?php echo CONTROLLER_NAME.ACTION_NAME; ?>{
+      color:#19a97b;
+      background:#f8f8f8;
+    }
+    .v_update{
+        border:1px solid #19a97b;
+        padding:2px 10px;
+        color:#19a97b;
+        cursor: pointer;
+        transition:background 0.8s;
+    }
+    .v_update:hover{
+      background:#19a97b;
+      color:white;
+    }
+
+    .v_delete{
+      border:1px solid red;
+      padding:2px 10px;
+      color:red;
+      cursor: pointer;
+      transition:background 0.8s; 
+    }
+
+    .v_delete:hover{
+      background:red;
+      color:white;
+    }
+    #showPopTxt{cursor: pointer;}
+    #error_tip{text-align: center;color:red;}
+</style>
+<section class="rt_wrap content mCustomScrollbar">
+    <div class="rt_content">
+       
+        <div class="page_title">
+           <h2 class="fl">管理员列表</h2>
+           
+        </div>
+        <form action="" method="GET">
+            <input type="hidden" name="formsearch" value="1"/>
+            <section class="mtb">
+                
+                <select class="select" name="status">
+                    <option value="-1">全部</option>
+                    <option value="2">审核通过</option>
+                    <option value="3">审核未通过</option>
+                    <option value="1">已提交审核</option>
+                    <option value="0">未提交审核</option>
+                </select>
+                
+               
+                <input type="text" name="email" value="{:I('get.email')}" class="textbox textbox_225" placeholder="请输入邮箱"/>
+                <input type="button" value="查询" id="sub" class="group_btn"/>
+            </section>
+        </form>
+        <table class="table">
+
+            <tr>
+                <th>ID</th>
+                <th>邮箱</th>
+              
+                <td>KYC验证状态</td>
+                <th>邮箱验证状态</th>
+                <th>本月登陆次数</th>
+                <th>上次登陆时间</th>
+               
+                <th>操作</th>
+            </tr>
+            <volist name="data" id="val">
+            <tr>
+                <td >{$val['user_id']}</td>
+                <td >{$val['email']}</td>
+               
+               
+                
+                <td class="center">
+                    <switch name="val.kyc_validate">
+                        <case value="0">未提交</case>
+                        <case value="1">已提交</case>
+                        <case value="2">通过</case>
+                        <case value="3">未通过</case>
+                    </switch>
+                </td>
+                <td >
+                    <switch name="val.email_confirm">
+                        <case value="0">未验证</case>
+                        <case value="1">已验证</case>
+                       
+                    </switch>
+                </td>
+                <td >{$val['m_count']}</td>
+                <td ><small>{$val['current_login_time']|date="Y-m-d H:i:s",###}</small></td>
+               
+                <td class="center">
+                    
+                    <a href="{:U('User/userDetail',array('user_id'=>$val['user_id']))}" title="编辑" class="link_icon">&#101;</a>
+                    <a href="{:U('User/userBan',array('user_id'=>$val['user_id']))}" title="禁止" class="link_icon">&#100;</a>
+                </td>
+            </tr>
+            </volist>
+        </table>
+        <aside class="paging">
+           {$page}
+        </aside>
+       
+    </div>
+</section>
+<script type="text/javascript">
+    $('#sub').on('click',function(){
+            
+        $('form').submit();
+          
+    });
+</script>
+<script type="text/javascript">
+ 
+</script>  
+</body>
+</html>

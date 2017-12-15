@@ -1,0 +1,121 @@
+<include file="Public/header" />
+<style type="text/css">
+    .table td{text-align:center;}
+    .table th{letter-spacing:4px;}
+    .table .dataList:hover{
+      background:#FFE4B5;
+    }
+    #sub{
+      width:110px;
+      margin-left:10px;
+    }
+
+    #<?php echo CONTROLLER_NAME.ACTION_NAME; ?>{
+      color:#19a97b;
+      background:#f8f8f8;
+    }
+    .v_update{
+        border:1px solid #19a97b;
+        padding:2px 10px;
+        color:#19a97b;
+        cursor: pointer;
+        transition:background 0.8s;
+    }
+    .v_update:hover{
+      background:#19a97b;
+      color:white;
+    }
+
+    .v_delete{
+      border:1px solid red;
+      padding:2px 10px;
+      color:red;
+      cursor: pointer;
+      transition:background 0.8s; 
+    }
+
+    .v_delete:hover{
+      background:red;
+      color:white;
+    }
+    #showPopTxt{cursor: pointer;}
+    #error_tip{text-align: center;color:red;}
+</style>
+<section class="rt_wrap content mCustomScrollbar">
+    <div class="rt_content">
+       
+        <div class="page_title">
+           <h2 class="fl">文章列表</h2>
+           <a href="{:U('Article/addArticle')}" class="fr top_rt_btn">添加文章</a>
+           
+        </div>
+        <form action="" method="GET">
+            <input type="hidden" name="formsearch" value="1"/>
+            <section class="mtb">
+                
+               
+            </section>
+        </form>
+        <table class="table">
+
+            <tr>
+                <th>ID</th>
+                <th>标题</th>
+              	<th>类型</th>
+                <th>语言</th>
+               	<th>状态</th>
+                <th>操作</th>
+            </tr>
+            <volist name="articles" id="val">
+            <tr>
+                <td >{$val['id']}</td>
+                <td >{$val['title']}</td>
+               
+               
+                
+                <td class="center">
+                   
+                    <switch name="val.type">
+                        <case value="1">Terms of Use</case>
+                        <case value="2">Privacy Policy</case>
+                       	<case value="3">White Paper</case>
+                    </switch>
+                
+                </td>
+                <td>{$val.language}</td>
+                <td >
+                    <switch name="val.status">
+                        <case value="0">不显示</case>
+                        <case value="1">显示</case>
+                       
+                    </switch>
+                </td>
+               
+                
+               
+                <td class="center">
+                    
+                    <a href="{:U('Article/updateArticle',array('article_id'=>$val['id']))}" title="编辑" class="link_icon">&#101;</a>
+                    
+                </td>
+            </tr>
+            </volist>
+        </table>
+        <aside class="paging">
+           {$page}
+        </aside>
+       
+    </div>
+</section>
+<script type="text/javascript">
+    $('#sub').on('click',function(){
+            
+        $('form').submit();
+          
+    });
+</script>
+<script type="text/javascript">
+ 
+</script>  
+</body>
+</html>

@@ -1,0 +1,30 @@
+.btn-group-lg>.btn, .btn-lg {
+    width: 220px;
+    padding: 8px 5px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 50px;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #00BA6E;
+    border-color: #00BA6E;
+}
+.btn-success:hover {
+    color: #fff;
+    background-color: rgba(0, 186, 108, 0.6);
+    border-color: rgba(0, 186, 108, 0.6);
+}
+.lead {
+    font-size: 15px;
+}
+
+@media screen and (max-width: 767px) {
+    .btn-group-lg>.btn, .btn-lg {
+        width: 100px;
+        padding: 8px 5px;
+        font-size: 14px;
+        border-radius: 20px;
+    }
+}
