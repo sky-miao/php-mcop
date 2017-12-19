@@ -620,7 +620,7 @@ a {
   line-height: 20px;
 }
 .footer .copy {
-  line-height: 26px;
+  /* line-height: 26px; */
   color: #7F7F7F;
   text-align: center;
 }

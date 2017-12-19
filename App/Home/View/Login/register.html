@@ -1,4 +1,36 @@
-<div class="layui-container fly-marginTop">
+<div class="login-page">
+    <div class="login-wrap layui-form">
+      <label for="basic-url" class="login-title">{:('Register')}</label>
+      <form method="post" action="{:U('Login/doRegister')}" id="registerForm">
+        <div class="input-wrap layui-form-item">
+            <span class="input-title" for="L_email">{:L('email')}</span>
+            <input type="text" class="input-content" id="L_email" name="email"
+                lay-verify="emailVerify" autocomplete="off" 
+                placeholder="Please enter your mailbox!" aria-describedby="basic-addon3">
+        </div>
+        <div class="input-wrap layui-form-item">
+            <span class="input-title" for="L_pass">{:L('password')}</span>
+            <input class="input-content"  type="password" id="L_pass" name="pass"
+                required lay-verify="required|password" autocomplete="off" 
+                placeholder="Please enter your password!"  aria-describedby="basic-addon3">
+        </div>
+        <div class="input-wrap layui-form-item">
+            <span class="input-title" for="L_repass">{:L('password_confirm')}</span>
+            <input class="input-content" type="password" id="L_repass" name="repass" 
+                required lay-verify="required|repass" autocomplete="off"
+                placeholder="Please enter your password!" aria-describedby="basic-addon3">
+        </div>
+        <div>
+            <input type="checkbox" sytle="display: inline-block; margin-right: 20px;">
+            <span>By checking this box, you agree to our Terms of Service and ack</span>
+        </div>
+        <div class="content-center"><button class="layui-btn" lay-filter="login" lay-submit>{:L('Register')}</button></div>
+        <div class="content-center">Already have an account? <a href="{:U('Login/login')}">{:L('login in')}</a></div>
+      </form>
+    </div>
+</div>
+
+<!-- <div class="layui-container fly-marginTop">
 <div class="fly-panel fly-panel-user" pad20>
     <div class="layui-tab layui-tab-brief" lay-filter="user">
         <ul class="layui-tab-title">
@@ -42,7 +74,13 @@
         </div>
         </div>
     </div>
-</div>
+</div> -->
 
 </div>
 <script type="text/javascript"  src="__PUBLIC__/customer/register.js"></script>
+<link href="__PUBLIC__/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+<link href="__PUBLIC__/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/bootstrap/css/bootstrap-style.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/login.css" />
