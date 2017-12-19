@@ -5,7 +5,7 @@ $db=include_once (dirname(__FILE__)."/database.php");
 
 $conf=array(
 	'SHOW_PAGE_TRACE' =>true,  //开发模式
-	'URL_MODEL'     =>  2, //URL访问模式,可选参数0/1/2/3
+	'URL_MODEL'     =>  1, //URL访问模式,可选参数0/1/2/3
     
    
 	/* 权限认证配置 start */
@@ -30,6 +30,7 @@ $conf=array(
     'MAIL_PASSWORD'    =>'Lian0000',
     'MAIL_TITLE'       =>'MCOP',
     'LANG_LIST'        => 'zh-cn,en-us',
+    'SESSION_OPTIONS'   =>  array("path"=>"./session"),
 
 );
 

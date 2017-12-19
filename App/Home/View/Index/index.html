@@ -36,6 +36,7 @@
 		</div>
 		
 		<div class="container marketing">
+			<!-- MEDICALPRO SERVICES -->
 			<div class="stage stage-get-well-soon">
 				<div class="hd">
 					<p>GET WELL SOON</p>
@@ -64,7 +65,7 @@
 				</div>
 			</div>
 
-			
+			<!-- 视频 -->
 			<div class="row featurette featurette-content">
 				<div class="col-md-6 col-md-push-6 movie-info">
 					<h4 class="featurette-heading">HOW IT WORKS</h4>
@@ -80,13 +81,13 @@
 					<a href="javascript:;" class='btn btn-play'>播放</a>
 				</div>
 			</div>
+			<!-- 图表 -->
 			<div class="stage-chart">
 				<div class="hd">
 					<p>GET WELL SOON</p>
 					<h3>MEDICALPRO SERVICES</h3>
 				</div>
 			</div>
-
 			<div class="row featurette">
 				<div class="col-md-6 col-md-push-6 movie-info">
 					<h4 class="featurette-heading">HOW IT WORKS</h4>
@@ -97,35 +98,16 @@
 					</div>
 				</div>
 				<div class="col-md-6 col-md-pull-6 movie-box">
-					<canvas id='myChart' width='400' height='400'></canvas>
+					<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    				<div id="myChartMain" style="width: 400px; height:400px; left: -60px;"></div>
+					<!-- <canvas id='myChart' width='400' height='400'></canvas> -->
 				</div>
 			</div>
 
-			<!-- 图表 -->
-			<div class="stage stage-chart">
-				<div class="w1200">
-					<div class="chart-box">
-						<div class="hd">
-							<p>GET WELL SOON</p>
-							<h3>MEDICALPRO SERVICES</h3>
-						</div>
-						<div class="bd">
-							<div class="chart">
-								<div class="chart-canvas">
-									<canvas id='myChart' width='400' height='400'></canvas>
-								</div>
-							</div>
-							<div class="chart-info">
-								<h3>TOKEN PCC</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. AeneanLorem ipsum dolor sit amet, consectetur adipiscing elit. AeneanLorem ipsum dolor sit amet, consectetur adipiscing elit. AeneanLorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean</p>
-								<div class="btn-area">
-									<a href="javascript:;">GET TOKEN</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			<!-- 大事记 -->
+
+
+
 			<!-- 大事记 -->
 			<div class="stage stage-time">
 				<h3>ROAD MAP</h3>
@@ -179,18 +161,20 @@
 					</ul>
 				</div>
 			</div>
+
+
+
 			<!-- 品牌 -->
 			<div class="stage stage-brand">
-				<div class="w1200">
-					<h3>MEDICALPRO SERVICES</h3>
-					<div class="service-item">
-						<img src="__PUBLIC__/home/images/cooperative-partner.png" alt="">
-					</div>
+				<h3>MEDICALPRO SERVICES</h3>
+				<div class="service-item">
+					<img src="__PUBLIC__/home/images/sm-partner.jpg" alt="">
 				</div>
 			</div>
+
 			<!-- 加入 -->
 			<div class="stage stage-join">
-				<div class="w1200">
+				<div>
 					<h3>JOIN US</h3>
 					<div class="join-item">
 						<ul>
@@ -278,33 +262,28 @@
 					</div>
 				</div>
 			</div>
+
 			<!-- 加入表单 -->
 			<div class="stage stage-form">
-				<div class="w1200">
-					<div class="form-wrap">
-						<div class="label">
-							<span>Join Our Mailing List</span>
-						</div>
-						<div class="form">
-							<input type="email" name='email' placeholder='Plese Enter your email address here'>
-							<button>JOIN</button>
-						</div>
-					</div>
-					
+				<div class="row  form-wrap">
+					<div class="col-md-4 label"><span>Join Our Mailing List</span></div>
+					<div class="col-md-8 form">
+						<input type="email" name='email' placeholder='Plese Enter your email address here'>
+						<button>JOIN</button></div>
 				</div>
 			</div>
 		</div>
 <!-- Begin MailChimp Signup Form -->
 <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
 <style type="text/css">
-	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;  width:360px;}
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;}
 	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
 	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
 </style>
 <div id="mc_embed_signup">
 <form action="https://mcop.us17.list-manage.com/subscribe/post?u=f86df245186ab8d19ed109199&amp;id=2547426949" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <div id="mc_embed_signup_scroll">
-	<h2>Subscribe to our mailing list</h2>
+	<h3>Subscribe to our mailing list</h3>
 <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
 <div class="mc-field-group">
 	<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
@@ -321,4 +300,6 @@
 </form>
 </div>
 <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+<script type='text/javascript' src='__PUBLIC__/echarts/echarts.common.min.js'></script>
+<script type='text/javascript' src='__PUBLIC__/echarts/pie-chart.js'></script>
 <!--End mc_embed_signup-->

@@ -115,6 +115,86 @@ body {
 .page-index .container .stage-chart .hd{
     padding-bottom: 0;
 }
+
+/* 时间轴 */
+.page-index .container .stage-time {
+    padding: 50px 0;
+    background: url(../images/events-bg.png) repeat-y;
+    background-size: 100% auto;
+  }
+  .page-index .container .stage-time h3 {
+    font-size: 20px;
+    text-align: center;
+    line-height: 40px;
+  }
+  .page-index .container .stage-time .events-wrap {
+    width: 100%;
+    background: url(../images/line.jpg) repeat-x;
+    background-position: 0 center;
+  }
+  .page-index .container .stage-time .events-wrap .events {
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    height: 360px;
+    align-items: center;
+    justify-content: center;
+  }
+  .page-index .container .stage-time .events-wrap .events li {
+    width: 20%;
+    position: relative;
+  }
+  .page-index .container .stage-time .events-wrap .events li .circle {
+    width: 60px;
+    height: 60px;
+    background: #F8F8F8 url(../images/cir.png) no-repeat center center;
+    background-size: 40px 40px;
+    border-radius: 50%;
+  }
+  .page-index .container .stage-time .events-wrap .events li .event-info {
+    height: 150px;
+    position: absolute;
+    left: -50%;
+    width: 100%;
+    margin-left: 30px;
+  }
+  .page-index .container .stage-time .events-wrap .events li .event-info .box {
+    padding-top: 90px;
+    background: url(../images/line-up.png) no-repeat center 0;
+    background-size: 5px 85px;
+    text-align: center;
+  }
+  .page-index .container .stage-time .events-wrap .events li .event-info .box .time {
+    font-size: 12px;
+    color: #333333;
+    line-height: 26px;
+    font-weight: bold;
+  }
+  .page-index .container .stage-time .events-wrap .events li .event-info .box .info {
+    color: #666;
+    text-align: center;
+  }
+  .page-index .container .stage-time .events-wrap .events li:nth-child(2n) .event-info {
+    top: 70px;
+  }
+  .page-index .container .stage-time .events-wrap .events li:nth-child(2n+1) .event-info {
+    height: 150px;
+    position: absolute;
+    left: -50%;
+    bottom: 65px;
+    width: 100%;
+    margin-left: 30px;
+  }
+  .page-index .container .stage-time .events-wrap .events li:nth-child(2n+1) .event-info .box {
+    padding-top: 0;
+    padding-bottom: 90px;
+    background: url(../images/line-down.png) no-repeat center bottom;
+    background-size: 5px 85px;
+    text-align: center;
+  }
+
+
+
 @media screen and (max-width: 767px) {
     
     .navbar{
@@ -155,5 +235,83 @@ body {
         margin-top: 0;
         margin-bottom: 10px;
     }
+
+
+    /* 时间轴 */
+    .page-index .container .stage-time {
+        padding: 50px 0;
+        background: url(../images/events-bg.png) repeat-y;
+        background-size: 100% auto;
+      }
+      .page-index .container .stage-time h3 {
+        font-size: 20px;
+        text-align: center;
+        line-height: 40px;
+      }
+      .page-index .container .stage-time .events-wrap {
+        width: 100%;
+        background: url(../images/line.jpg) repeat-x;
+        background-position: 0 center;
+      }
+      .page-index .container .stage-time .events-wrap .events {
+        width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        height: 360px;
+        align-items: center;
+        justify-content: center;
+      }
+      .page-index .container .stage-time .events-wrap .events li {
+        width: 20%;
+        position: relative;
+      }
+      .page-index .container .stage-time .events-wrap .events li .circle {
+        width: 60px;
+        height: 60px;
+        background: #F8F8F8 url(../images/cir.png) no-repeat center center;
+        background-size: 40px 40px;
+        border-radius: 50%;
+      }
+      .page-index .container .stage-time .events-wrap .events li .event-info {
+        height: 150px;
+        position: absolute;
+        left: -50%;
+        width: 100%;
+        margin-left: 30px;
+      }
+      .page-index .container .stage-time .events-wrap .events li .event-info .box {
+        padding-top: 90px;
+        background: url(../images/line-up.png) no-repeat center 0;
+        background-size: 5px 85px;
+        text-align: center;
+      }
+      .page-index .container .stage-time .events-wrap .events li .event-info .box .time {
+        font-size: 12px;
+        color: #333333;
+        line-height: 26px;
+        font-weight: bold;
+      }
+      .page-index .container .stage-time .events-wrap .events li .event-info .box .info {
+        color: #666;
+        text-align: center;
+      }
+      .page-index .container .stage-time .events-wrap .events li:nth-child(2n) .event-info {
+        top: 70px;
+      }
+      .page-index .container .stage-time .events-wrap .events li:nth-child(2n+1) .event-info {
+        height: 150px;
+        position: absolute;
+        left: -50%;
+        bottom: 65px;
+        width: 100%;
+        margin-left: 30px;
+      }
+      .page-index .container .stage-time .events-wrap .events li:nth-child(2n+1) .event-info .box {
+        padding-top: 0;
+        padding-bottom: 90px;
+        background: url(../images/line-down.png) no-repeat center bottom;
+        background-size: 5px 85px;
+        text-align: center;
+      }
 
 }

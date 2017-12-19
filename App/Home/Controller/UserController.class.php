@@ -10,6 +10,8 @@ class UserController extends BaseController
 
 		$user_id=session('user_id');
 		
+		
+		//$user_id =16800;
 	
 		$user=D('User')->getUser($user_id);
 
@@ -19,7 +21,7 @@ class UserController extends BaseController
 		}
 
 
-		$messages =session('message')??[];
+		$messages =session('message')?session('message'):array();
 		if ($user['email_confirm'] =='0') {
 			$messages['need_email_confirm'] =L('need_email_confirm');
 		}
