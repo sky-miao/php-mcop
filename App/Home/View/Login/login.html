@@ -1,35 +1,32 @@
 <!-- Login -->
- <div class="login-page">
-  <div class=" fly-marginTop">
-    <div class="fly-panel fly-panel-user" pad20>
-      <div class="login-wrap layui-form" id="LAY_ucm">
-        <label for="basic-url" class="login-title">{:('Join ICO')}</label>
-        <form method="post" action="{:U('Login/doLogin')}">
-          <div class="input-wrap layui-form-item">
-            <label for="L_email" class="layui-form-label input-title">{:L('email')}</label>
-            <div class="layui-input-inline">
-              <input class="input-content" type="text" id="L_email" name="email" required  lay-verify="required|emailVerify" autocomplete="off" class="layui-input">
-            </div>
+ <div class="login-page content-style">
+    <div class="login-wrap layui-form" id="LAY_ucm">
+      <label for="basic-url" class="login-title">{:('Join ICO')}</label>
+      <form method="post" action="{:U('Login/doLogin')}">
+        <div class="input-wrap layui-form-item">
+          <label for="L_email" class="layui-form-label input-title">{:L('email')}</label>
+          <div class="layui-input-inline">
+            <input class="input-content" type="text" id="L_email" name="email" required  lay-verify="required|emailVerify" autocomplete="off" class="layui-input">
           </div>
-          <div class="input-wrap layui-form-item">
-            <label for="L_pass" class="layui-form-label input-title">{:L('password')}</label>
-            <div class="layui-input-inline">
-              <input class="input-content" type="password" id="L_pass" name="pass" required lay-verify="required" autocomplete="off" class="layui-input">
-            </div>
+        </div>
+        <div class="input-wrap layui-form-item">
+          <label for="L_pass" class="layui-form-label input-title">{:L('password')}</label>
+          <div class="layui-input-inline">
+            <input class="input-content" type="password" id="L_pass" name="pass" required lay-verify="required" autocomplete="off" class="layui-input">
           </div>
-          <div class="layui-form-item">
-          </div>
-          <div class="content-right"> <a href="{:U('Login/resetPassword')}">{:L('forget_password')}？</a></div>
-          <div class="layui-form-item content-center">
-            <button class="layui-btn" lay-filter="login" lay-submit>{:L('Login')}</button>
-          </div>
-          <div class="content-center">Don’t have an account? You can <a href="{:U('Login/register')}">{:L('register')}</a> here</div>
-        </form>
-      </div>
+        </div>
+        <div class="layui-form-item">
+        </div>
+        <div class="content-right"> <a href="{:U('Login/resetPassword')}">{:L('forget_password')}？</a></div>
+        <div class="layui-form-item content-center">
+          <button class="layui-btn" lay-filter="login" lay-submit>{:L('Login')}</button>
+        </div>
+        <div class="content-center">Don’t have an account? You can <a href="{:U('Login/register')}">{:L('register')}</a> here</div>
+      </form>
     </div>
-  </div>
 </div>
 <script type="text/javascript"  src="__PUBLIC__/customer/login.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/global.css">
 <link href="__PUBLIC__/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="__PUBLIC__/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 <link href="__PUBLIC__/bootstrap/css/bootstrap.min.css" rel="stylesheet">

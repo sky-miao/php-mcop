@@ -12,6 +12,13 @@ html,body{overflow-x: hidden;}
 
 html{background-color: #F2F2F2;}
 i{font-style: normal;}
+/* 内容格式 */
+.content-style{
+  overflow-y: auto; 
+  height: 100%;
+  margin-top: -50px;
+  margin-bottom: -50px;
+}
 
 /* 图标 */
 
@@ -92,8 +99,8 @@ i{font-style: normal;}
 
 
 /* 辅助 */
-a:hover{color: #009688; transition: all .3s;}
-pre{padding: 10px 15px; margin: 10px 0; font-size: 12px; border-left: 6px solid #009688;  background-color: #f8f8f8; font-family: Courier New; overflow: auto;}
+a:hover{color: #3ab775; transition: all .3s;}
+pre{padding: 10px 15px; margin: 10px 0; font-size: 12px; border-left: 6px solid #3ab775;  background-color: #f8f8f8; font-family: Courier New; overflow: auto;}
 
 .layui-container{padding: 0;}
 .fly-main{width: 1079px; min-height: 600px; margin: 0 auto 15px;}
@@ -101,14 +108,15 @@ pre{padding: 10px 15px; margin: 10px 0; font-size: 12px; border-left: 6px solid 
 
 .fly-link{color: #01AAED;}
 .fly-link:hover{color: #5FB878;}
-.fly-grey{color: #999;}
+.fly-grey{color: #999999;}
 
 .fly-msg, .fly-error{padding: 10px 15px; line-height: 24px;}
 .fly-msg{background-color:#F8F8F8; color:#666;}
 .fly-msg a{color:#4F99CF}
 .fly-editbox{position: relative;}
 
-.fly-marginTop{margin-top: 15px;}
+/* .fly-marginTop{margin-top: 15px;} */
+.fly-marginTop{margin-top: 60px;}
 .fly-mid{display: inline-block; height: 10px; width: 1px; margin: 0 10px; vertical-align: middle; background-color: #e2e2e2;}
 .fly-right{position: absolute; right: 15px; top: 0;}
 
@@ -124,7 +132,7 @@ pre{padding: 10px 15px; margin: 10px 0; font-size: 12px; border-left: 6px solid 
 .fly-badge-accept{height: 18px; line-height: 18px; padding: 0 5px !important; background-color: #5FB878; border-radius: 2px;}
 
 /* 赞助商 */
-.fly-zanzhu{display: block; position: relative; height: 60px; line-height: 60px; margin-top: 10px; padding: 0 20px; text-align: center; font-size: 16px; font-weight: 300; background-color: #009688; color: #fff;}
+.fly-zanzhu{display: block; position: relative; height: 60px; line-height: 60px; margin-top: 10px; padding: 0 20px; text-align: center; font-size: 16px; font-weight: 300; background-color: #3ab775; color: #fff;}
 .fly-zanzhu:first-child{margin-top: 0;}
 .fly-zanzhu:hover{opacity: 0.9; color: #fff;}
 
@@ -215,7 +223,7 @@ pre{padding: 10px 15px; margin: 10px 0; font-size: 12px; border-left: 6px solid 
 .fly-tab-border span{border: 1px solid #ddd; border-right: none; font-size:0;}
 .fly-tab-border span a{position: relative; height: 36px; line-height: 36px; padding: 0 20px; border-right: 1px solid #ddd; font-size: 14px; background-color: #fff;}
 .fly-tab-border .tab-this{color: #000;}
-.fly-tab-border .tab-this:after{content: ''; position: absolute; bottom: -1px; left: -1px; width: 100%; height: 1px; padding: 0 1px; background-color: #009688;}
+.fly-tab-border .tab-this:after{content: ''; position: absolute; bottom: -1px; left: -1px; width: 100%; height: 1px; padding: 0 1px; background-color: #3ab775;}
 
 /* 分页 */
 .laypage-main,
@@ -385,7 +393,8 @@ body .layui-edit-face  .layui-layer-content{padding:0; background-color:#fff; co
 
 /* 用户中心 */
 body .fly-user-main{position: relative; min-height: 600px;}
-.fly-user-main>.layui-nav{position: absolute; left: 0; top: 0; z-index: 1000; height: 100%; padding: 10px 0;}
+/* .fly-user-main>.layui-nav{position: absolute; left: 0; top: 0; z-index: 1000; height: 100%; padding: 10px 0;} */
+.fly-user-main>.layui-nav{position: absolute; left: 0; top: 0; z-index: 1000; height: 90%; padding: 10px 0;}
 .fly-user-main>.layui-nav .layui-icon{position: relative; top: 2px; font-size: 20px; margin-right: 10px;}
 .fly-user-main>.fly-panel{min-height: 575px; margin: 0 0 10px 215px;}
 .fly-user-main .fly-none{min-height: 0;}
@@ -461,8 +470,8 @@ body .fly-user-main{position: relative; min-height: 600px;}
 
 .fly-case-tab{margin-top: 20px; text-align: center;}
 .fly-case-tab span,
-.fly-case-tab span a{border-color: #009688;}
-.fly-case-tab .tab-this{background-color: #009688; color: #fff;}
+.fly-case-tab span a{border-color: #3ab775;}
+.fly-case-tab .tab-this{background-color: #3ab775; color: #fff;}
 
 .fly-case-list{margin-top: 15px; font-size: 0;}
 .fly-case-list li, 
@@ -475,7 +484,8 @@ body .fly-user-main{position: relative; min-height: 600px;}
 .fly-case-img .layui-btn{display: none; position: absolute; bottom: 20px; left: 50%; margin-left: -29px;}
 .fly-case-img:hover .layui-btn{display: inline-block;}
 .fly-case-list li h2{padding: 10px 0 5px; line-height: 22px; font-size: 18px; white-space: nowrap; overflow: hidden; text-align: center;}
-.fly-case-desc{height: 60px; line-height: 20px; font-size: 12px; color: #666; overflow: hidden;}
+/* .fly-case-desc{height: 60px; line-height: 20px; font-size: 12px; color: #666; overflow: hidden;} */
+.fly-case-desc{line-height: 20px; font-size: 14px; color: #666; overflow: hidden;}
 .fly-case-info{position: relative; margin: 10px 0 0; padding: 10px 65px 0 45px; border-top: 1px dotted #eee;}
 .fly-case-info p{height:24px; line-height: 24px;}
 .fly-case-user{position: absolute; left: 0; top: 15px; width: 35px; height: 35px;}
@@ -484,7 +494,7 @@ body .fly-user-main{position: relative; min-height: 600px;}
 .layer-ext-ul{margin: 10px; max-height: 500px;}
 .layer-ext-ul img{width: 50px; height: 50px; border-radius: 100%;}
 .layer-ext-ul li{margin: 8px;}
-.layer-ext-case .layui-layer-title{border: none; background-color: #009688; color: #fff;}
+.layer-ext-case .layui-layer-title{border: none; background-color: #3ab775; color: #fff;}
 
 /* 广告 */
 .fly-ad{position: relative; background-color: #f2f2f2; overflow:hidden;}

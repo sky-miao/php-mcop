@@ -7,7 +7,7 @@ class UserController extends BaseController
 	public function index()
 	{
 		
-
+		layout('Layout/layout');
 		$user_id=session('user_id');
 		
 		
@@ -27,7 +27,7 @@ class UserController extends BaseController
 		}
 
 		session('message',null);
-		layout('Layout/layout');
+		//layout('Layout/layout');
 		//dump($user);exit;
 		
 		$this->assign('messages',$messages);
@@ -215,5 +215,10 @@ class UserController extends BaseController
 
 			$this->ajaxReturn($response);
 		}
+	}
+
+	public function saleRecord()
+	{
+		$this->display();
 	}
 }

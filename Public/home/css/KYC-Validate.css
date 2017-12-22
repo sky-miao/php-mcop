@@ -1,0 +1,24 @@
+.lable-title{
+    color: #3ab775;
+}
+.submit-button{
+    width: 150px;
+}
+
+.layui-form-label{
+    text-align: left;
+    padding: 9px 0;
+}
+.layui-form-item {
+    text-align: center;
+}
+.layui-form-item .layui-input-inline{
+    width: 400px;
+}
+.layui-form-mid {
+    text-align: left;
+    width: 400px;
+}
+.imgbox{
+    margin-top: 10px;
+}

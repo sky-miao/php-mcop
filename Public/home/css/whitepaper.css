@@ -1,0 +1,38 @@
+.whitepaper-page{
+    padding: 100px 0;
+}
+
+.fly-case-list{
+    width: 100%;
+    margin-top: 50px;
+    margin: 0 auto;
+    text-align: center;
+}
+.fly-case-list li{
+    width: 440px;
+    padding: 0;
+    margin: 10px 35px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,.1);
+}
+.fly-case-title{
+    display: inline-block;
+    height: 216px;
+    width: 100%;
+    line-height: 216px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    background: url(../images/whitepaper.png) no-repeat;
+    background-size: 100% 100%;
+}
+.fly-case-title:hover,.fly-case-title:link,.fly-case-title:active, .fly-case-title:visited{
+    text-decoration: none;
+    color: #333;
+}
+
+.fly-case-desc {
+    padding: 20px 60px;
+    text-align: left;
+    font-weight: bold;
+}

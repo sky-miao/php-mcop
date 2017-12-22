@@ -41,40 +41,39 @@
 								<img src="__PUBLIC__/home/images/logo.png" alt="">
 							</a>
 						</div>
-							<!-- </div> -->
+						<!-- </div> -->
 						<div id="navbar" class="navbar-collapse collapse">
 							<ul class="nav navbar-nav navbar-right">
 								<li class="active"><a href="{:U('Index/whitepaper')}">WhitePaper</a></li>
 								<li><a href="{:U('Index/tokensale')}" >TokenSale</a></li>
 								<li><a href="javascript:;" >Blog</a></li>
-
-								<if condition="$Think.session.isSignin eq true">
-									<li>
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-											<a href=""><img src="{$user['avatar']}" class="layui-nav-img"></a>
-											<span class="caret"></span>
-										</a>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="{:U('User/index')}" class=''>
-													<span>我的主页</span>
-												</a>
-											</li>
-											<li>
-												<a href="{:U('User/setting')}" class=''>
-													<span>基本信息</span>
-												</a>
-											</li>
-											<li>
-												<a href="{:U('Login/logout')}" class=''>
-													<span>安全退出</span>
-												</a>
-											</li>
-										</ul>
-									</li>
-									<else />	
-										<li><a href="{:U('Login/login')}" class=''>{:L('login')}</a></li>
-								</if>
+									<if condition="$Think.session.isSignin eq true">
+										<li>
+											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="height: 50px;">
+												<img src="{$user['avatar']}" class="layui-nav-img">
+												<span class="caret"></span>
+											</a>
+												<ul class="dropdown-menu">
+													<li>
+														<a href="{:U('User/index')}" class=''>
+															<span>我的主页</span>
+														</a>
+													</li>
+													<li>
+														<a href="{:U('User/setting')}" class=''>
+															<span>基本信息</span>
+														</a>
+													</li>
+													<li>
+														<a href="{:U('Login/logout')}" class=''>
+															<span>安全退出</span>
+														</a>
+													</li>
+												</ul>
+										</li>
+										<else />	
+											<li><a href="{:U('Login/login')}" class=''>{:L('login')}</a></li>
+									</if>
 
 
 								<li>
