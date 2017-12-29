@@ -13,6 +13,7 @@
     }
 </style>
 <link rel="stylesheet" href="__PUBLIC__/home/css/KYC-Validate.css">
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <h1 style="text-align:center;">One Step Away to Access the Token Sale</h1>
 <h3 style="text-align:center; margin:20px 0;">You will need the following items to complete the registration</h3>
 <form class="layui-form" id="kycvalidateform" method="POST" action="{:U('User/validate')}">
@@ -74,7 +75,7 @@
                 <input type="text" value="{$user['state_region']?$user['state_region']:''}" name="state_region" lay-verify="required|state_region" autocomplete="off" class="layui-input">
             </div>
         </div>
-
+        
         <div class="layui-inline">
             <div>
                 <label class="layui-form-label lable-title">Country</label>
@@ -188,6 +189,12 @@
         </div>
     </div>
  
+    <if condition="$Think.config.ENV  neq 'local'">
+    <div class="layui-form-item">
+    <div class="g-recaptcha" style="margin-left: 307px;margin-top: 10px;" data-sitekey="6LemnTgUAAAAAPzuP4KyGVq1473n27XiL3vS5al7"></div>
+    </div>
+    </if>
+
 
   <div class="layui-form-item">
       <button class="layui-btn submit-button" type="button" lay-submit="" lay-filter="kycvalidatesub">{:L('submit')}</button>

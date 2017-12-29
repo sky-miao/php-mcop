@@ -58,7 +58,9 @@ class ArticleController extends BaseController
 		    'maxSize'    =>    3145728,
 		    'rootPath'   =>    './Uploads/',
 		    'savePath'   =>    'pdf/',
-		    'saveName'   =>    array('uniqid',''),
+		    //'saveName'   =>    array('uniqid',''),
+		    'saveName'   =>'',
+		    'replace'       =>  true, 
 		    'exts'       =>    array('pdf'),
 		    'autoSub'    =>    true,
 		    'subName'    =>    array('date','Ymd'),
@@ -76,7 +78,7 @@ class ArticleController extends BaseController
 	        return false;
 	    }else{// 上传成功
 	    	
-	    	return $pdfurl= '/Uploads/'.$info['savepath'].$info['savename'];
+	    	return $pdfurl= './Uploads/'.$info['savepath'].$info['savename'];
 	    	
 	    }
 	}
@@ -116,6 +118,25 @@ class ArticleController extends BaseController
 			$articleModel->save($post);
 			redirect(U('Article/articleList'));
 			
+		}
+	}
+
+	public function deleteArticle()
+	{
+		if (IS_POST && IS_AJAX) {
+			$article_id =I('post.id');
+			$articleModel = M('Articles','mcop_',C('DB_CONFIG'));
+			$article =$articleModel->where('id =%d',$article_id)->find();
+			if ($article) {
+				if ($article['type'] =='3') {  //whitepaper
+					@unlink('./'.$article['url']);
+				}
+				$res =$articleModel ->where('id=%d',$article_id)->delete();
+
+				$this->ajaxReturn(['code'=>'success','msg'=>'success']);
+			}else{
+				$this->ajaxReturn(['code'=>'failed','msg'=>'system error']);
+			}
 		}
 	}
 }

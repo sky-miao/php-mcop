@@ -63,6 +63,7 @@ a {
 }
 .header {
   position: relative;
+  z-index: 1003;
   /* position: absolute;
   width: 100%;
   top: 0;
@@ -115,9 +116,9 @@ a {
 .header .nav-wrap .nav-box .nav .language-box .hd {
   height: 50px;
   line-height: 50px;
-  padding-right: 16px;
+  padding:0 16px;
   font-size: 12px;
-  background: url(../images/icon-arrow-down.png) no-repeat right center;
+  /* background: url(../images/icon-arrow-down.png) no-repeat right center; */
   background-size: 9.6px 4.8px;
   transition: all .5s;
   -moz-transition: all .5s;
@@ -127,9 +128,11 @@ a {
 .header .nav-wrap .nav-box .nav .language-box .hd img {
   height: 12px;
   vertical-align: middle;
+  margin: 0 10px;
 }
 .header .nav-wrap .nav-box .nav .language-box .select {
   height: 0;
+  width: 145px;
   overflow: hidden;
   background-color: rgba(30, 30, 30, 0.7);
   position: absolute;

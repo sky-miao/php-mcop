@@ -67,7 +67,7 @@
                 <th>操作</th>
             </tr>
             <volist name="articles" id="val">
-            <tr>
+            <tr class="dataList" id="{$val['id']}">
                 <td >{$val['id']}</td>
                 <td >{$val['title']}</td>
                
@@ -95,7 +95,8 @@
                
                 <td class="center">
                     
-                    <a href="{:U('Article/updateArticle',array('article_id'=>$val['id']))}" title="编辑" class="link_icon">&#101;</a>
+                    <a href="{:U('Article/updateArticle',array('article_id'=>$val['id']))}" title="编辑" class="link_icon v_update">&#101;</a>
+                    <a title="删除" class="link_icon v_delete" data="{$val['id']}">&#100;</a>
                     
                 </td>
             </tr>
@@ -108,14 +109,27 @@
     </div>
 </section>
 <script type="text/javascript">
-    $('#sub').on('click',function(){
-            
-        $('form').submit();
+    $(function(){
+        $('.v_delete').on('click',function(){
           
-    });
+            if (!confirm('确定要删除吗？')) {
+                return false;
+            }
+            var article_id = $(this).attr('data');
+
+            var postUrl = "{:U('Article/deleteArticle')}";
+            $.post(postUrl,{'id':article_id},function(data){
+                if(data.code == "success"){
+                    alert('删除成功');
+                    $('#'+article_id).hide();
+                }else{
+                    alert(data.msg);
+                }
+                
+            });
+        })
+    })
 </script>
-<script type="text/javascript">
- 
-</script>  
+
 </body>
 </html>

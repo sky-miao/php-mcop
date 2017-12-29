@@ -15,7 +15,8 @@ class UserController extends BaseController
 	
 		$user=D('User')->getUser($user_id);
 
-		if (is_array($user['kyc_validate'],array(0,3))) {
+		if (in_array($user['kyc_validate'],array(0,3))) {
+
 			$countrys =@include_once('./Data/countrys.php');
 			$this->assign('countrys',$countrys);
 		}
@@ -39,6 +40,22 @@ class UserController extends BaseController
 	public function validate()
 	{
 		if (IS_POST ) {
+			if (C('ENV') !='local') {
+                if (empty($postData['g-recaptcha-response'])) {
+                    $this->error(L('recaptcha_verify'));
+                }
+                $sendData =[
+                    'secret' =>C('RECAPTCHA_SECRET'),
+                    'response' =>$postData['g-recaptcha-response'],
+                   
+                ];
+
+                \Think\Log::write(json_encode($sendData),'WARN');
+                $response =recaptchaPost($sendData);
+                if ($response['success'] !='true') {
+                    $this->error(L('recaptcha_verify_error'));
+                }
+            }
 			if ($this->isValidate()) {
 				$postData=I('post.');
 				$postData['first_name'] =trim($postData['first_name']);
@@ -49,7 +66,12 @@ class UserController extends BaseController
 				if (!$result) {
 					session('message.kyc_validate_save_error',L('kyc_validate_save_error'));
 				}
-				$result=A('Email')->sendMailToVerifyEmail(session('email'));
+
+				$user =M('User','mcop_',C('DB_CONFIG'))->where('user_id='.session('user_id'))->find();
+
+				if ($user['email_confirm'] !='1') {
+					A('Email')->sendMailToVerifyEmail(session('email'));
+				}
 				redirect(U('User/index'));
 			}
 
@@ -219,6 +241,14 @@ class UserController extends BaseController
 
 	public function saleRecord()
 	{
+		$user_id=session('user_id');
+		
+		
+		//$user_id =16800;
+	
+		$user=D('User')->getUser($user_id);
+		$this->assign('user',$user);
+		layout('Layout/layout');
 		$this->display();
 	}
 }

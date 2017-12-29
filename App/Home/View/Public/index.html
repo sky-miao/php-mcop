@@ -21,91 +21,105 @@
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/bootstrap/css/bootstrap-style.css" />
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/style.css" />
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/head.css" />
-	
+	<style>
+		html,body{
+			/* overflow-y: hidden; */
+		}
+		.page{
+			overflow: auto;
+		}
+	</style>
 </head>
 <body>
 	<!-- 首页 -->
-	<div class="page page-index">
-		<div class="header">
-				<nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0px; border-bottom: 0px;">
-					<div class="container">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<!-- <div class="navbar-header"> -->
-						<div class="navbar-header logo">
-							<a href="{:U('Index/index')}" class='logo'>
-								<img src="__PUBLIC__/home/images/logo.png" alt="">
+	<!-- <div class="page page-index"> -->
+	<div class="header">
+		<nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0px; border-bottom: 0px;">
+			<div class="container">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<!-- <div class="navbar-header"> -->
+				<div class="navbar-header logo">
+					<a href="{:U('Index/index')}" class='logo'>
+						<img src="__PUBLIC__/home/images/logo.png" alt="">
+					</a>
+				</div>
+				<!-- </div> -->
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="active"><a href="{:U('Index/whitepaper')}">{:L('white_paper')}</a></li>
+						<li><a href="{:U('Index/tokensale')}" >{:L('token_sale')}</a></li>
+						<li><a href="javascript:;" >{:L('blog')}</a></li>
+						<li>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								<switch name="Think.cookie.think_language">
+										<case value="zh-cn">
+											<img src="__PUBLIC__/home/images/china.png" alt="">
+											<span>中文</span> <span class="caret"></span>
+										</case>
+										<case value="en-us">
+											<img src="__PUBLIC__/home/images/america.png" alt="">
+											<span>ENGLISH</span> <span class="caret"></span>
+										</case>
+										<default />
+											<img src="__PUBLIC__/home/images/america.png" alt="">
+											<span>ENGLISH</span> <span class="caret"></span>
+								</switch>
+								
 							</a>
-						</div>
-						<!-- </div> -->
-						<div id="navbar" class="navbar-collapse collapse">
-							<ul class="nav navbar-nav navbar-right">
-								<li class="active"><a href="{:U('Index/whitepaper')}">WhitePaper</a></li>
-								<li><a href="{:U('Index/tokensale')}" >TokenSale</a></li>
-								<li><a href="javascript:;" >Blog</a></li>
-									<if condition="$Think.session.isSignin eq true">
-										<li>
-											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="height: 50px;">
-												<img src="{$user['avatar']}" class="layui-nav-img">
-												<span class="caret"></span>
-											</a>
-												<ul class="dropdown-menu">
-													<li>
-														<a href="{:U('User/index')}" class=''>
-															<span>我的主页</span>
-														</a>
-													</li>
-													<li>
-														<a href="{:U('User/setting')}" class=''>
-															<span>基本信息</span>
-														</a>
-													</li>
-													<li>
-														<a href="{:U('Login/logout')}" class=''>
-															<span>安全退出</span>
-														</a>
-													</li>
-												</ul>
-										</li>
-										<else />	
-											<li><a href="{:U('Login/login')}" class=''>{:L('login')}</a></li>
-									</if>
-
-
+							<ul class="dropdown-menu">
 								<li>
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-										<img src="__PUBLIC__/home/images/america.png" alt="">
-										<span>ENGLISH</span> <span class="caret"></span>
+									<a href="?lang=zh-cn" class=''>
+										<img src="__PUBLIC__/home/images/china.png" alt="">
+										<span>中文</span>
 									</a>
+								</li>
+								<li>
+									<a href="?lang=en-us" class=''>
+										<img src="__PUBLIC__/home/images/america.png" alt="">
+										<span>English</span>
+									</a>
+								</li>
+								
+							</ul>
+						</li>
+						<if condition="$Think.session.isSignin eq true">
+							<li>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="height: 50px;">
+									<img src="{$user['avatar']}" class="layui-nav-img">
+									<span class="caret"></span>
+								</a>
 									<ul class="dropdown-menu">
 										<li>
-											<a href="?lang=zh-cn" class=''>
-												<img src="__PUBLIC__/home/images/china.png" alt="">
-												<span>中文</span>
+											<a href="{:U('User/index')}" class=''>
+												<span>{:L('account')}</span>
 											</a>
 										</li>
 										<li>
-											<a href="?lang=en-us" class=''>
-												<img src="__PUBLIC__/home/images/america.png" alt="">
-												<span>English</span>
+											<a href="{:U('User/setting')}" class=''>
+												<span>{:L('setting')}</span>
 											</a>
 										</li>
 										<li>
-											<a href="?lang=korea" class=''>
-												<img src="__PUBLIC__/home/images/korea.png" alt="">
-												<span>한국어</span>
+											<a href="{:U('Login/logout')}" class=''>
+												<span>{:L('logout')}</span>
 											</a>
 										</li>
 									</ul>
-								</li>
-							</ul>
-						</div><!--/.nav-collapse -->
-					</div>
-				</nav>
+							</li>
+							<else />	
+								<li><a href="{:U('Login/login')}" class=''>{:L('login')}</a></li>
+						</if>
+					</ul>
+				</div><!--/.nav-collapse -->
+			</div>
+		</nav>
+	<!-- </div> -->
+	<!-- </div> -->
 	<!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

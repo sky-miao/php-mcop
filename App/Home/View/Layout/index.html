@@ -1,3 +1,15 @@
-<include file="Public/index" />
-	{__CONTENT__}
-<include file="Public/footer" />
+<style>
+	html,body{
+		/* overflow-y: hidden;  */
+	}
+	.index-page{
+		height: 100%;
+		overflow-y: auto; 
+		margin-bottom: -50px;
+	}
+</style>
+<div class="index-page">
+	<include file="Public/index" />
+		{__CONTENT__}
+	<include file="Public/footer" />
+</div>

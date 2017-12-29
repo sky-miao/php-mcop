@@ -163,7 +163,7 @@ EOD;
 			<div style="padding:25px 35px 40px; background-color:#fff;">
 			<h2 style="margin: 5px 0px; "><font color="#333333" style="line-height: 20px; "><font style="line-height: 22px; " size="4" >Hi,{$user['email']}：</font></font></h2>
 			<h3>Confirm Email Activate :</h3>
-			<p><a href="{$link}" style="
+			<p><a href="$link" style="
 				background: #096  repeat-x;
 		display: inline-block;
 		padding: 5px 10px 6px;

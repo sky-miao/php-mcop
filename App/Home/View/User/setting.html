@@ -1,13 +1,18 @@
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/global.css">
 <style type="text/css">
+    html,body{
+        overflow: hidden;
+    }
     .layui-form-pane .layui-form-label{
         width: 225px;
     }
     .layui-form-item .layui-input-inline{width: 350px;}
 </style>
-<div class="layui-container fly-marginTop fly-user-main">
+<!-- <div class="layui-container fly-marginTop fly-user-main"> -->
+<div class="layui-container fly-user-main fly-padding fly-paddingTop content-style fly-paddingLeft">
     <include file="Public/usernavbar" />
-    <div class="fly-panel fly-panel-user" pad20>
+    <!-- <div class="fly-panel fly-panel-user" pad20> -->
+    <div class="fly-panel-user">
         <div class="layui-tab layui-tab-brief" >
             <ul class="layui-tab-title" id="LAY_mine">
                 <li class="layui-this" lay-id="101profile">我的资料</li>

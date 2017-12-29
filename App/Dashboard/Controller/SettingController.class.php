@@ -22,10 +22,5 @@ class SettingController extends BaseController
 		$this->display();
 	}
 
-	public function language()
-	{
-		
-		$this->display();
-
-	}
+	
 }

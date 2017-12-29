@@ -80,7 +80,9 @@ class UserModel extends Model
 				->where('user_id=%d',$user_id)
 				->field('first_name,last_name,date_of_birth,street_address,city,state_region,country,postal_code,ethereum_address,estimated_participation_amount,idcard_number,kyc_validate')
 				->save($postData);
+		
 		return $result;
+		
 	}
 
 	public function updatePassword($postData)

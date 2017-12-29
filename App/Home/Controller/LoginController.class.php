@@ -18,7 +18,25 @@ class LoginController extends BaseController{
     public function doLogin()
     {
         if (IS_POST) {
+
             $postData=I('post.');
+            
+            if (C('ENV') !='local') {
+                if (empty($postData['g-recaptcha-response'])) {
+                    $this->error(L('recaptcha_verify'));
+                }
+                $sendData =[
+                    'secret' =>C('RECAPTCHA_SECRET'),
+                    'response' =>$postData['g-recaptcha-response'],
+                   
+                ];
+
+                \Think\Log::write(json_encode($sendData),'WARN');
+                $response =recaptchaPost($sendData);
+                if ($response['success'] !='true') {
+                    $this->error(L('recaptcha_verify_error'));
+                }
+            }
             if (session('loginErrorNum')>5) $this->error(L('loginErrorNum'));
             if (!empty($postData['email']) && !empty($postData['pass'])) {
                 $salt='mcop!@#$';
@@ -68,6 +86,22 @@ class LoginController extends BaseController{
         if (IS_POST) {
             $postData=I('post.');
 
+            if (C('ENV') !='local') {
+                if (empty($postData['g-recaptcha-response'])) {
+                    $this->error(L('recaptcha_verify'));
+                }
+                $sendData =[
+                    'secret' =>C('RECAPTCHA_SECRET'),
+                    'response' =>$postData['g-recaptcha-response'],
+                   
+                ];
+
+                \Think\Log::write(json_encode($sendData),'WARN');
+                $response =recaptchaPost($sendData);
+                if ($response['success'] !='true') {
+                    $this->error(L('recaptcha_verify_error'));
+                }
+            }
             if (empty($postData['email']) || empty($postData['pass'])) {
                 $this->error(L('emptyRegisterForm'));
             }

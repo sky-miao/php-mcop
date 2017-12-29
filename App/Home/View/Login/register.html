@@ -1,4 +1,5 @@
-<div class="login-page">
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<div class="login-page content-style">
     <div class="login-wrap layui-form">
       <label for="basic-url" class="login-title">{:('Register')}</label>
       <form method="post" action="{:U('Login/doRegister')}" id="registerForm">
@@ -20,62 +21,23 @@
                 required lay-verify="required|repass" autocomplete="off"
                 placeholder="Please enter your password!" aria-describedby="basic-addon3">
         </div>
+        <if condition="$Think.config.ENV  neq 'local'">
+            <div class="layui-form-item">
+              <div class="g-recaptcha" style="margin-left: 80px;margin-top: 10px;" data-sitekey="6LemnTgUAAAAAPzuP4KyGVq1473n27XiL3vS5al7"></div>
+          </div>
+        </if>
         <div>
             <input type="checkbox" sytle="display: inline-block; margin-right: 20px;">
-            <span>By checking this box, you agree to our Terms of Service and ack</span>
+            <span>By checking this box, you agree to our <a href="{:U('Index/termsofuse')}">Terms of Service and ack</a></span>
         </div>
         <div class="content-center"><button class="layui-btn" lay-filter="login" lay-submit>{:L('Register')}</button></div>
         <div class="content-center">Already have an account? <a href="{:U('Login/login')}">{:L('login in')}</a></div>
       </form>
     </div>
 </div>
-
-<!-- <div class="layui-container fly-marginTop">
-<div class="fly-panel fly-panel-user" pad20>
-    <div class="layui-tab layui-tab-brief" lay-filter="user">
-        <ul class="layui-tab-title">
-            <li><a href="{:U('Login/login')}">{:L('login')}</a></li>
-            <li class="layui-this">{:L('register')}</li>
-        </ul>
-        <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
-        <div class="layui-tab-item layui-show">
-        <div class="layui-form layui-form-pane">
-        <form method="post" action="{:U('Login/doRegister')}" id="registerForm">
-            <div class="layui-form-item">
-                <label for="L_email" class="layui-form-label">{:L('email')}</label>
-                <div class="layui-input-inline">
-                    <input type="text" id="L_email" name="email"  lay-verify="emailVerify" autocomplete="off" class="layui-input">
-                </div>
-
-            </div>
-
-            <div class="layui-form-item">
-                <label for="L_pass" class="layui-form-label">{:L('password')}</label>
-            <div class="layui-input-inline">
-                <input type="password" id="L_pass" name="pass" required lay-verify="required|password" autocomplete="off" class="layui-input">
-            </div>
-
-            </div>
-            <div class="layui-form-item">
-                <label for="L_repass" class="layui-form-label">{:L('password_confirm')}</label>
-                <div class="layui-input-inline">
-                <input type="password" id="L_repass" name="repass" required lay-verify="required|repass" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-item">
-            </div>
-            <div class="layui-form-item">
-                <button class="layui-btn" lay-filter="register" lay-submit>{:L('submit')}</button>
-            </div>
-        </form>
-        </div>
-        </div>
-        </div>
-    </div>
-</div> -->
-
 </div>
 <script type="text/javascript"  src="__PUBLIC__/customer/register.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/global.css">
 <link href="__PUBLIC__/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="__PUBLIC__/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 <link href="__PUBLIC__/bootstrap/css/bootstrap.min.css" rel="stylesheet">

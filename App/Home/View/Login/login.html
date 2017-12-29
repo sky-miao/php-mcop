@@ -1,4 +1,5 @@
 <!-- Login -->
+<script src='https://www.google.com/recaptcha/api.js'></script>
  <div class="login-page content-style">
     <div class="login-wrap layui-form" id="LAY_ucm">
       <label for="basic-url" class="login-title">{:('Join ICO')}</label>
@@ -18,6 +19,13 @@
         <div class="layui-form-item">
         </div>
         <div class="content-right"> <a href="{:U('Login/resetPassword')}">{:L('forget_password')}？</a></div>
+
+        <if condition="$Think.config.ENV  neq 'local'">
+            <div class="layui-form-item">
+              <div class="g-recaptcha" style="margin-left: 80px;margin-top: 10px;" data-sitekey="6LemnTgUAAAAAPzuP4KyGVq1473n27XiL3vS5al7"></div>
+          </div>
+        </if>
+
         <div class="layui-form-item content-center">
           <button class="layui-btn" lay-filter="login" lay-submit>{:L('Login')}</button>
         </div>

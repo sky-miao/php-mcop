@@ -1,6 +1,7 @@
 body {
-    min-height: 2000px;
-  }
+    /* min-height: 2000px; */
+    height: 100%；
+}
   
 .navbar-static-top {
     margin-bottom: 19px;
@@ -193,6 +194,13 @@ body {
     text-align: center;
   }
 
+/* 隐藏时间轴中的小图 */
+.page-index .container .stage-time .events-wrap .timeline-wrap{
+    display: none;
+}
+.page-index .container .stage-time .events-wrap .timeline-wrap img{
+    display: none;
+}
 
 
 @media screen and (max-width: 767px) {
@@ -236,8 +244,7 @@ body {
         margin-bottom: 10px;
     }
 
-
-    /* 时间轴 */
+    /* 时间轴 小*/
     .page-index .container .stage-time {
         padding: 50px 0;
         background: url(../images/events-bg.png) repeat-y;
@@ -250,16 +257,28 @@ body {
       }
       .page-index .container .stage-time .events-wrap {
         width: 100%;
-        background: url(../images/line.jpg) repeat-x;
+        /* background: url(../images/line.jpg) repeat-x; */
+        background: rgba(30, 30, 30, 0);
         background-position: 0 center;
       }
+      .page-index .container .stage-time .events-wrap .timeline-wrap{
+          padding: 0 10px;
+          display: block;
+      }
+      .page-index .container .stage-time .events-wrap .timeline-wrap img {
+        width: 100%;
+        display: inline-block;
+      }
       .page-index .container .stage-time .events-wrap .events {
-        width: 1000px;
+        width: 0;
+        height: 0;
+        display: none;
+        /* width: 1000px;
         margin: 0 auto;
         display: flex;
         height: 360px;
         align-items: center;
-        justify-content: center;
+        justify-content: center; */
       }
       .page-index .container .stage-time .events-wrap .events li {
         width: 20%;
@@ -281,7 +300,7 @@ body {
       }
       .page-index .container .stage-time .events-wrap .events li .event-info .box {
         padding-top: 90px;
-        background: url(../images/line-up.png) no-repeat center 0;
+        /* background: url(../images/line-up.png) no-repeat center 0; */
         background-size: 5px 85px;
         text-align: center;
       }

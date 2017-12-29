@@ -1,7 +1,6 @@
 // mcop
 // banner部分tab切换
 
-
 $('.language-box .hd').click(function(event) {
    
     if ($('.select').hasClass('show')) {
@@ -11,6 +10,7 @@ $('.language-box .hd').click(function(event) {
     }
     //$('.select').addClass('show');  
 });
+
 // 创建图表
 if(document.getElementById("myChart")){
     var ctx = document.getElementById("myChart").getContext("2d");
@@ -36,3 +36,15 @@ if(document.getElementById("myChart")){
         options: options
     });
 }
+
+//手机设备的简单适配
+var treeMobile = $('.site-tree-mobile')
+,shadeMobile = $('.site-mobile-shade')
+
+treeMobile.on('click', function(){
+    $('body').addClass('site-mobile');
+});
+
+shadeMobile.on('click', function(){
+    $('body').removeClass('site-mobile');
+});

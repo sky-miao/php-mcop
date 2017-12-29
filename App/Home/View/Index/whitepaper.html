@@ -7,32 +7,14 @@
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/whitepaper.css">
 <div class="whitepaper-page content-style">
     <ul class="fly-case-list" style="margin-bottom:50px;">
-        <li data-id="1231">
-            <a class="fly-case-title" href="{:U('Index/downloadPDF',array('pdf_id'=>1231))}" target="_blank">技术白皮书</a>
+        <volist name="pdfs" id="vo">
+        <li data-id="{$vo['id0']}">
+            <a class="fly-case-title" href="{:U('Index/downloadPDF',array('name'=>$vo['title'],'pdf_id'=>$vo['id']))}" target="_blank">{$vo.title}</a>
             <p class="fly-case-desc">
-                Fly 社区是 layui 的官方社区，全站的前端层面基于 Layui 风格编写，轻量而简洁，并且模版已经开源，可用于极简社区模板。
+              
             </p>
         </li>
-        <li data-id="1232">
-            <a class="fly-case-title" href="{:U('Index/downloadPDF',array('pdf_id'=>1232))}" target="_blank">经济白皮书</a>
-            <p class="fly-case-desc">
-                Fly 社区是 layui 的官方社区，全站的前端层面基于 Layui 风格编写，轻量而简洁，并且模版已经开源，可用于极简社区模板。
-            </p>
-        </li>
+        </volist>
     </ul>
-    <ul class="fly-case-list">
-        <li data-id="1233">
-            <a class="fly-case-title" href="{:U('Index/downloadPDF',array('pdf_id'=>1233))}" target="_blank">开发白皮书</a>
-            <p class="fly-case-desc">
-                Fly 社区是 layui 的官方社区，全站的前端层面基于 Layui 风格编写，轻量而简洁，并且模版已经开源，可用于极简社区模板。
-            </p>
-        </li>
-
-        <li data-id="1234">
-            <a class="fly-case-title" href="{:U('Index/downloadPDF',array('pdf_id'=>1234))}" target="_blank">白皮书</a>
-            <p class="fly-case-desc">
-                Fly 社区是 layui 的官方社区，全站的前端层面基于 Layui 风格编写，轻量而简洁，并且模版已经开源，可用于极简社区模板。
-            </p>
-        </li>
-    </ul>
+    
 </div>

@@ -117,6 +117,9 @@ pre{padding: 10px 15px; margin: 10px 0; font-size: 12px; border-left: 6px solid 
 
 /* .fly-marginTop{margin-top: 15px;} */
 .fly-marginTop{margin-top: 60px;}
+/* .fly-padding{padding-left: 300px;padding-right: 20%;} */
+.fly-padding{padding-left: 10px;padding-right: 20%;}
+.fly-paddingTop{padding-top:60px;}
 .fly-mid{display: inline-block; height: 10px; width: 1px; margin: 0 10px; vertical-align: middle; background-color: #e2e2e2;}
 .fly-right{position: absolute; right: 15px; top: 0;}
 
@@ -392,9 +395,11 @@ body .layui-edit-face  .layui-layer-content{padding:0; background-color:#fff; co
 
 
 /* 用户中心 */
-body .fly-user-main{position: relative; min-height: 600px;}
+body .fly-user-main{position: relative; min-height: 600px;width:100%;}
 /* .fly-user-main>.layui-nav{position: absolute; left: 0; top: 0; z-index: 1000; height: 100%; padding: 10px 0;} */
 .fly-user-main>.layui-nav{position: absolute; left: 0; top: 0; z-index: 1000; height: 90%; padding: 10px 0;}
+
+.fly-padding>.layui-nav{position: absolute; left: 0; top: 50px; z-index: 1000; height: 75%; padding: 10px 0;}
 .fly-user-main>.layui-nav .layui-icon{position: relative; top: 2px; font-size: 20px; margin-right: 10px;}
 .fly-user-main>.fly-panel{min-height: 575px; margin: 0 0 10px 215px;}
 .fly-user-main .fly-none{min-height: 0;}
@@ -561,4 +566,15 @@ body .fly-user-main{position: relative; min-height: 600px;}
   .site-mobile .site-tree-mobile{display: none !important;}
   .site-mobile .fly-user-main>.layui-nav{left: 0;}
   .site-mobile .site-mobile-shade{content: ''; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background-color: rgba(0,0,0,.9); z-index: 999;}
+}
+
+
+.fly-paddingLeft{
+  padding-left: 300px;
+}
+
+@media screen and (max-width: 767px) {
+  .fly-paddingLeft{
+      padding-left: 10px;
+  }
 }

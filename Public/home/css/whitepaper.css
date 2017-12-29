@@ -12,8 +12,9 @@
     width: 440px;
     padding: 0;
     margin: 10px 35px;
+    border: 1px solid#ccc;
     border-radius: 10px;
-    box-shadow: 1px 1px 5px rgba(0,0,0,.1);
+    /* box-shadow: 1px 1px 5px rgba(0,0,0,.1); */
 }
 .fly-case-title{
     display: inline-block;
